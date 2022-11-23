@@ -1,26 +1,26 @@
 /*=======================================
 index
 
-drop table: line
+drop table: line 32
 
 create table & insert fake date
-prodCategory: line
-memberLevel: line
-restaurant: line
-administrator: line
-prodInfo: line
-member: line
-coupon: line
-reserveTime: line
-restaurantPic: line
-adOrder: line
-prodPic: line
-shoppingCart: line
-prodOrder: line
-likedRestauranr: line
-memberCoupon: line
-reservation: line
-prodOrderDetail: line
+prodCategory: line 53
+memberLevel: line 71
+restaurant: line 87
+administrator: line 114
+prodInfo: line 135
+member: line 160
+coupon: line 190
+reserveTime: line 228
+restaurantPic: line 250
+adOrder: line 270
+prodPic: line 300
+shoppingCart: line 321
+prodOrder: line 342
+likedRestauranr: line 378
+memberCoupon: line 409
+reservation: line 426
+prodOrderDetail: line 459
 
 =======================================*/
 
