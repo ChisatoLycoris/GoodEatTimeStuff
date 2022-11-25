@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text aera</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        textarea{
+            resize: none; /* horizontal | vertical | none | both(預設) */
+            padding: 8px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="the_textarea"></textarea>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_textarea").on("keyup", function(){
+  
+            // 做法一：
+            // console.log( "scrollHeight: " + $(this).prop("scrollHeight") );
+            // $(this).css("height", $(this).prop("scrollHeight") + 2);
+            
+            // 做法二
+            
+            let textarea_content = $(this).val();
+            //console.log(textarea_content);
+            
+            
+            let content_arr = textarea_content.split("\n");
+            //console.log(content_arr);
+            
+            let count = content_arr.length;
+            
+            
+            let padding_add_border = $(this).outerHeight() - $(this).height();
+            //console.log(padding_add_border); // 18
+            
+            $(this).css("height", (16 * count + padding_add_border ) + "px");
+            
+        });
+    </script>
+</body>
+</html>

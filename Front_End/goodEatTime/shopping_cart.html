@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="美食, 找餐廳, 訂位, 訂餐, html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>好食光 | 購物車</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/shopping_cart.css">
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__cart">
+            <div class="offcanvas__cart__links">
+                <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+                <a href="#"><img src="img/icon/heart.png" alt=""></a>
+            </div>
+            <div class="offcanvas__cart__item">
+                <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
+                <div class="cart__price">Cart: <span>$0.00</span></div>
+            </div>
+        </div>
+        <div class="offcanvas__logo">
+            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__option">
+            <ul>
+                <li>USD <span class="arrow_carrot-down"></span>
+                    <ul>
+                        <li>EUR</li>
+                        <li>USD</li>
+                    </ul>
+                </li>
+                <li>ENG <span class="arrow_carrot-down"></span>
+                    <ul>
+                        <li>Spanish</li>
+                        <li>ENG</li>
+                    </ul>
+                </li>
+                <li><a href="#">Sign in</a> <span class="arrow_carrot-down"></span></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="header__top__inner">
+                            <div class="header__top__left">
+                                <ul>
+                                    <li><img class="login_icon" src="./img/Login_icon.png"><a class="login_text" href="#">登入</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__logo">
+                                <a href="./GoodEatTime.html"><img class="goodeattime_logo" src="img/GoodEatTime_logoright.png" alt=""></a>
+                            </div>
+                            <div class="header__top__right">
+                                <div class="header__top__right__links">
+                                    <a href="" class="search-switch"><img src="img/icon/search.png" alt=""></a>
+                                    <a href="#"><img src="img/icon/heart.png" alt=""></a>
+                                </div>
+                                <div class="header__top__right__cart">
+                                    <a href="#"><img src="img/icon/cart.png" alt=""><span></span></a>
+                                    <div class="cart__price">購物車: <span>72筆</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open"><i class="fa fa-bars"></i></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="./GoodEatTime.html">首頁</a></li>
+                            <li><a href="./about.html">會員專區</a></li>
+                            <li><a href="./shop.html">餐廳</a></li>
+                            <li class="active"><a href="./blog.html">線上商城</a></li>
+                            <li><a href="#">關於我們</a>
+                                <ul class="dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./wisslist.html">Wisslist</a></li>
+                                    <li><a href="./Class.html">Class</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./contact.html">地點搜尋</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__text">
+                        <h2>購物車</h2>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="breadcrumb__links">
+                        <a href="./index.html">首頁</a>
+                        <span>購物車</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Shopping Cart Section Begin -->
+    <section class="shopping-cart spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="shopping__cart__table">
+                        <table>
+                            <thead class="prod__cart__heads">
+                                <tr>
+                                    <th class="prod__cart__head1">
+                                        <span class="-plus">+</span><span class="-minus">-</span>
+                                        餐廳名稱1
+                                    </th>
+                                    <th class="prod__cart__head2">數量</th>
+                                    <th class="prod__cart__head3">金額</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="prod__cart__items">
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-1.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>幕斯可可杯子蛋糕</h6>
+                                            <h5 price="130">NTD 130</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="2">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price"></td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-2.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>戚風海綿莓果蛋糕</h6>
+                                            <h5 price="150">NTD 150</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price"></td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-3.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>蘭姆酒風味提拉米蘇</h6>
+                                            <h5 price="200">NTD 200</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price"></td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-4.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>比司吉</h6>
+                                            <h5 price="50">NTD 50</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price"></td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="table__divider"></div>
+                        <table>
+                            <thead class="prod__cart__heads">
+                                <tr>
+                                    <th class="prod__cart__head1">
+                                        <span class="-plus">+</span><span class="-minus">-</span>
+                                        餐廳名稱2
+                                    </th>
+                                    <th class="prod__cart__head2">數量</th>
+                                    <th class="prod__cart__head3">金額</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody class="prod__cart__items">
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-1.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>幕斯可可杯子蛋糕</h6>
+                                            <h5 price="130">NTD 130</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">NTD 390</td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-2.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>戚風海綿莓果蛋糕</h6>
+                                            <h5 price="150">NTD 150</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">NTD 500</td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-3.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>蘭姆酒風味提拉米蘇</h6>
+                                            <h5 price="200">NTD 200</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">NTD 20</td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                                <tr>
+                                    <td class="product__cart__item">
+                                        <div class="product__cart__item__pic">
+                                            <img src="img/shop/cart/cart-4.jpg" alt="">
+                                        </div>
+                                        <div class="product__cart__item__text">
+                                            <h6>比司吉</h6>
+                                            <h5 price="50">NTD 50</h5>
+                                        </div>
+                                    </td>
+                                    <td class="quantity__item">
+                                        <div class="quantity">
+                                            <div class="pro-qty">
+                                                <input type="text" value="1">
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="cart__price">NTD 50</td>
+                                    <td class="cart__close"><span class="icon_close"></span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 這邊暫時用不到，先註解起來 -->
+                    <!-- <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn">
+                                <a href="#">Continue Shopping</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="continue__btn update__btn">
+                                <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart__discount">
+                        <h6 class="cart__discount__code">使用折價券</h6>
+                        <form action="#" class="cart__discount__form">
+                            <!-- <input type="text" placeholder="Coupon code"> -->
+                            <div class="selected__coupon__mask">
+                                <select name="coupon" id="selected__coupon">
+                                    <option value="">請選擇折價券</option>
+                                    <option value="123">滿200元折50元</option>
+                                    <option value="456">滿1,000打9折</option>
+                                </select>
+                            </div>
+                            <button type="button" id="use__coupon">使用</button>
+                        </form>
+                        <div class="cart__discount__alert">
+                            <span>請先取消使用再重新選擇</span>
+                        </div>
+                    </div>
+                    <div class="cart__total">
+                        <h6>結帳金額總計</h6>
+                        <ul>
+                            <!-- <li class="cart__subtotal">原始金額 <span>1,500</span></li> -->
+                            <!-- <li>折價券優惠 <span>- 50</span></li> -->
+                            <li class="cart__total__divider"> <span></span></li>
+                            <li class="cart__final__amount">結帳金額 <span>NTD 0</span></li>
+                        </ul>
+                        <a href="#" class="primary-btn"> 前 往 結 帳 </a>
+                    </div>
+                    <div class="continue__btn update__btn">
+                        <a href="#"> 繼 續 購 物 </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shopping Cart Section End -->
+
+    <!-- Footer Section Begin -->
+    <!-- Footer RWD CSS有空再調整... -->
+    <footer class="footer set-bg" data-setbg="img/footer_bg.jpg">
+        <div class="mask">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__member">
+                            <h6>會員專區</h6>
+                            <div class="footer__social">
+                                <a href="#">登入/加入會員<i ></i></a>
+                                <br>
+                                <a href="#">訂單管理<i ></i></a>
+                                <br>
+                                <a href="#">訂位管理<i ></i></a>
+                                <br>
+                                <a href="#">我的優惠券<i ></i></a>
+                                <br>
+                                <a href="#">我的評論<i ></i></a>
+                            </div>
+                        </div>
+                        <div class="footer__restaurant">
+                            <h6>餐廳</h6>
+                            <div class="footer__social">
+                                <a href="#">訂位<i ></i></a>
+                                <br>
+                                <a href="#">購物車<i ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__shopping">
+                            <h6>線上商城</h6>
+                            <div class="footer__social">
+                                <a href="#">商品搜尋<i ></i></a>
+                                <br>
+                                <a href="#">購物車<i ></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="footer__aboutus">
+                            <h6>關於我們</h6>
+                            <div class="footer__social">
+                                <a href="#">網站介紹<i ></i></a>
+                                <br>
+                                <a href="#">履歷<i ></i></a>
+                            </div>
+                        </div>
+                        <div class="footer__widget">
+                            <h6>好食光</h6>
+                            <ul>
+                                <li>指導老師：</li>
+                                <li>吳永志老師 | 吳冠宏老師 | 張互賓老師</li>
+                                <li>郭惠民老師 | 陳怡榕老師 | 馬全德老師</li>
+                                <li>組員 :</li>
+                                <li>陳宜瀅 | 張家銘 | 楊婕妤 </li>
+                                <li>游育碩 | 黃郁婕 | 李佳欣 | 余可凡</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <p class="copyright__text text-white"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="copyright__widget">
+                            <ul>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/shopping_cart.js"></script>
+</body>
+</html>

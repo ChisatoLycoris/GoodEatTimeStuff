@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IIFE</title>
+</head>
+<body>
+    <h1>IIFE(Immediately Invoked Function Expression)</h1>
+
+    <p>段落一</p>
+    <p class="para">一二三四五</p>
+    <p class="para">一二三四五六七八九十</p>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        var result = (function(a, b) {
+            // console.log("ttt");
+            // console.log(a + b);
+            return a + b;
+        })(1, 2);
+        
+        // var result = add(1, 2);
+        console.log(result);
+
+        // conclusion
+        (function(){
+
+        })();
+
+        // practice
+        (function($){
+            $.fn.reverseText = function(params){
+                params = $.extend({ min: 0, max: 9999 }, params); // { min: 0, max: 5 }
+    
+                // 跑迴圈
+                // console.log(this);
+                // console.log(params);
+                $(this).each(function(){
+                
+                    //console.log(this); // 這裡的 this 指的是各個 p.para 元素
+                    let txt = $(this).text();
+                    if(txt.length >= params.min && txt.length <= params.max){
+                        //console.log( txt.split("").reverse().join("") );
+                        $(this).text( txt.split("").reverse().join("") );
+                    }
+                    // console.log(txt.split(""));
+                });
+
+                return this;
+            }
+        })(jQuery);
+
+        $(function(){
+            $("p.para").reverseText();
+            
+            //$("p.para").reverseText({min: 0, max: 5}); // 限定只有 0 ~ 5 個文字，才會真的反向顯示
+            
+            // 反向顯示完後，然後2秒鐘的時間，不透明度漸變至 0.2(opacity: 0.2)
+            $("p.para").reverseText().fadeTo(2000, 0.2);
+        });
+    </script>
+</body>
+</html>

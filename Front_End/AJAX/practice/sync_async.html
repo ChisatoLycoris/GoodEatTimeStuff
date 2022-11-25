@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+        /*sync*/
+        // for(let i = 0; i < 200; i++){
+        //     if( i == 100){
+        //         alert(i);
+        //     }
+        //     console.log(i);
+        // }
+        /*async*/
+        for(let i = 0; i < 200; i++){
+            if( i == 100){
+                /*當 i 等於 100 時，經過 0 毫秒時，會執行 function 裡的程式，
+                「但」會先將「同步」程式碼執行完之後，才會執行「非同步」程式碼。*/
+                setTimeout(function(){
+                    console.log("印出這裡");
+                }, 0);
+            }
+            console.log(i);
+        }
+    </script>
+  </body>
+</html>

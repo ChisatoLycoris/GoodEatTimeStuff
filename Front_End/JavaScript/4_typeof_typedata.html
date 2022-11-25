@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: peru
+        }
+    </style>
+</head>
+<body>
+    <h2>data_type basic</h2>
+    <script>
+        var boolean_test = true;
+        document.write(typeof boolean_test + "<br>");
+        var num_test = 123;
+        document.write(typeof num_test + "<br>");
+        var string_test = "text";
+        document.write(typeof string_test + "<br>");
+    </script>
+    <h2>data easy</h2>
+    <script>
+        var null_test = null;
+        document.write(typeof null_test + "<br>");
+        // object!!!!!!!!!
+
+        var undefined_test;
+        document.write(typeof undefined_test + "<br>");
+        // undefined
+    </script>
+    <h2>data type compound</h2>
+    <script>
+        var arr = [1, 2, 3, 4, 5];
+        document.write(typeof arr + "<br>");
+        // object!!!!!!!!!!
+
+        var object = {
+            name: "jack",
+            age: 20
+        }
+        document.write(typeof object + "<br>");
+    </script>
+    <h2>data type special</h2>
+    <script>
+        function fun_test() {
+            console.log("yoyo function");
+        }
+        fun_test();
+        document.write(typeof fun_test + "<br>");
+        // function!!!!!!!!!
+    </script>
+    <h2>typeof</h2>
+    <script>
+        var text = "123";
+        if(typeof text == "string") {
+            console.log("it is a String");
+        }
+    </script>
+    <h2>typecasting</h2>
+    <script>
+        var types = "2.8";
+        document.write(Number(types) + "<br>");
+        document.write(typeof Number(types) + "<br>");
+
+        document.write(parseInt(types) + "<br>");
+        document.write(typeof parseInt(types) + "<br>");
+
+        document.write(parseFloat(types) + "<br>");
+        document.write(typeof parseFloat(types + "<br>"));
+    </script>
+</body>
+</html>

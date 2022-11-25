@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 400px;
+        }
+        #show_L img{
+            width: 100%;
+        }
+        .all_img {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        .all_img img{
+            width: 80%;
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div id='show_L'>
+            <img id='show_L_img'src="img/a1.png" alt="">
+        </div>
+        <div class="all_img">
+            <img src="img/a1.png" alt="">
+            <img src="img/a2.png" alt="">
+            <img src="img/a3.png" alt="">
+            <img src="img/a4.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    function change_img(e){
+        //抓你點擊的這個小圖的“屬性”
+        var clickIMG = e.target.getAttribute('src');
+        console.log(clickIMG);
+        //換路徑給大圖
+        // document.querySelector("#show_L_img").setAttribute("src", clickIMG);
+        document.querySelector("#show_L > img").setAttribute("src", clickIMG);
+        // "#show_L > img" 表示下一層， "#show_L img "表示下面的所有階層
+    }
+    function init(){
+        //抓小圖註冊事件
+        document.querySelectorAll(".all_img > img").forEach(function (element){
+            element.addEventListener("click", change_img)
+        });
+    }
+    window.addEventListener('load',init);
+</script>
+</html>

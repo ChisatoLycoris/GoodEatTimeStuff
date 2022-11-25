@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color:rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <h2>Global scope function</h2>
+    <script>
+        // window.innerWidth
+        function windowSize(){
+            return this.innerWidth;
+        }
+        // this points to window object
+        document.write(windowSize() + "<br>");
+    </script>
+
+    <h2>Global scope variable</h2>
+    <script>
+        var width = 100;
+        var shape = {
+            width: 500
+        }
+
+        function whichWidth() {
+            return this.width;
+        }
+        document.write(whichWidth() + "<br>"); // 100
+    </script>
+
+    <h2>methods of the object</h2>
+    <script>
+        var shape = {
+            width : 600,
+            getWidth : function() {
+                return this.width;
+            }
+        }
+        document.write(shape.getWidth() + "<br>"); // 600
+
+    </script>
+
+    <h2>change Function Expression to methods</h2>
+    <script>
+        var width = 100;
+        var shape = {
+            width: 400
+        }
+        var getOtherWidth = function() {
+            return this.width;
+        }
+        shape.getWidth = getOtherWidth;
+        document.write(shape.getWidth() + "<br>"); // 400
+        document.write(getOtherWidth + "<br>"); // print function, but not execute function
+    </script>
+</body>
+</html>

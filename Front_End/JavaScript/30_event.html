@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxColor{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            /* background-color: rgb(10,40,240); */
+        }
+    </style>
+</head>
+<body>
+    <div class="boxColor"></div>
+    <!-- <button id="btn" onclick="document.querySelector('.boxColor').style.backgroundColor = 'grey'">
+    Click
+    </button> -->
+
+    <!-- <button id="btn" onclick="showColor()">Click</button>
+    <script>
+        function showColor(){
+            var color = `rgb(
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)}
+                )`;
+            document.querySelector(".boxColor").style.backgroundColor = color;
+        }
+    </script> -->
+
+    <!-- <button id="btn">Click</button>
+    <script>
+        function showColor(){
+            var color = `rgb(
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)}
+                )`;
+            document.querySelector(".boxColor").style.backgroundColor = color;
+        }
+        document.querySelector("#btn").addEventListener("click", showColor)
+    </script> -->
+
+    <button id="btn">Click</button>
+    <script>
+        document.querySelector("#btn").addEventListener("click", function(){
+            var color = `rgb(
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)},
+                ${Math.floor(Math.random()*256)}
+                )`;
+            document.querySelector(".boxColor").style.backgroundColor = color;
+        })
+    </script>
+</body>
+</html>

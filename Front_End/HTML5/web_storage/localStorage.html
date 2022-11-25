@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>localStorage</title>
+  </head>
+  <body>
+    <p>localStorage 測試</p>
+    <script>
+      // js 相關程式
+      // window.localStorage  
+    //   localStorage.colorSetting1 = '第一種方式';
+    //   localStorage['colorSetting2'] = '第二種方式';
+    //   localStorage.setItem('colorSetting3', '第三種方式');
+
+      var car = {
+        color: "white",
+        price: 100
+      };
+
+      // 物件格式轉為JSON格式儲存
+    //   localStorage.setItem('myCar', JSON.stringify(car));
+      // 讀取資料時，再轉為物件格式
+      var myData = JSON.parse(localStorage.getItem('myCar'));
+      console.log(myData.price);
+
+    </script>
+  </body>
+</html>

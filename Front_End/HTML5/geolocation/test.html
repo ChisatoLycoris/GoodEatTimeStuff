@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    
+
+    <script>
+        // 同步
+        console.log("1");
+        // 非同步
+        setTimeout(function(){
+            console.log("2");
+            console.log("同步的部分全部執行完後，才會來執行非同步的部分");
+        }, 0);
+        // 同步
+        for (var i = 0; i < 1000; i++) {
+            console.log("3");
+        }
+    </script>
+</body>
+</html>

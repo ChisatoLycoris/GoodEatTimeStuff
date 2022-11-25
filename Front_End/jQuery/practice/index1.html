@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 相關練習</title>
+</head>
+<body>
+    <!-- 
+    <h1>test1</h1>
+    <h1>test2</h1>
+     -->
+    <div>
+        before
+        <p class="class_test">
+            prepend
+            Test
+            append
+        </p>
+        after
+    </div>
+    <div>
+        <p class="yo">yo</p>
+    </div>
+
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        // $(function(){
+        //     $("h1").on('click',function(){
+        //         alert("ttt");
+        //     });
+        // });
+
+        console.log(jQuery);
+        console.log($);
+        console.log($("p"));                // jQuery的物件
+        console.log($("p").className);
+        console.log(document.querySelector("p.class_test").className);
+        console.log($("p").html());         // 取得內容 innerHTML
+        console.log($("p").attr("class"));  // 取得class屬性的值 getAttribute
+        $("p").css("color", "red");         // 改變文字顏色  元素.style.color = "red"
+        $("p").css("font-style", "italic"); // 變斜體  元素.style.fontStyle = "italic"
+        // $("p").attr("class", "myclass");    // setAttribute
+        $("p").attr("id", "myid");          
+        $("p").attr("style", "font-weight: bold;font-size: 30px;");
+
+        // $("p").html("<span>這是 span 標籤的內容。</span>");
+        // $("p").text("<span>這是 span 標籤的內容。</span>");
+
+        // $("p").remove();
+        
+        // $("p").append("<span>這是 span 標籤的內容。</span>"); // 裡面的最後面
+        // $("p").prepend("<span>這是 span 標籤的內容。</span>"); // 裡面的最前面
+        // $("p").after("<span>這是 span 標籤的內容。</span>"); // 同層後面
+        // $("p").before("<span>這是 span 標籤的內容。</span>"); // 同層前面
+
+    </script>
+</body>
+</html>

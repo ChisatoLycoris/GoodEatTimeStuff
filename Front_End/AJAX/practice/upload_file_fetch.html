@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>使用 fetch 來將檔案上傳</title>
+  </head>
+  <body>
+    <h1>使用 fetch 語法</h1>
+    <input type="file" id="the_file" accept="image/*">
+    <div class="upload_status"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+      $(function(){
+
+        $("#the_file").on("change", function(){
+          // here
+          //console.log(this.files);
+          let form_data = new FormData();
+          form_data.append('the_file', this.files[0]);
+
+          $("div.upload_status").html("檔案傳送中…");
+
+          // 寫法一：
+          fetch("https://notes.webmix.cc/html5_tutorial/file/file_receive.php", {
+            method: "POST",
+            body: form_data
+          }).then(function(response){
+            return response.json();
+          }).then(function(data){
+            console.log(data);
+            $("div.upload_status").html("檔案傳送完成");
+          }).catch(function(error){
+            console.log(error);
+            $("div.upload_status").html("檔案傳送失敗");
+          });
+
+          // 寫法二：
+          /*
+          fetch("https://notes.webmix.cc/html5_tutorial/file/file_receive.php", {
+            method: "POST",
+            body: form_data
+          }).then(response => response.json()).then((data) => {
+            console.log(data);
+            $("div.upload_status").html("檔案傳送完成");
+          }).catch((error) => {
+            console.log(error);
+            $("div.upload_status").html("檔案傳送失敗");
+          });
+          */
+
+
+        });
+
+      });
+
+    </script>
+  </body>
+</html>

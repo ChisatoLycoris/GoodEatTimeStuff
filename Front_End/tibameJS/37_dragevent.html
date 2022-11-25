@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #leftbox {
+            border: 5px dotted green;
+            width: 280px;
+            height: 280px;
+            float: left;
+            margin: 5px;
+            padding: 5px;
+        }
+    
+        img {
+            width: 100%;
+        }
+    
+        #rightbox {
+            border: 5px dotted red;
+            width: 280px;
+            height: 280px;
+            float: left;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="leftbox">
+        <img src="img/cat.jpg" class="image">
+    </div>
+    <div id="rightbox"></div>
+</body>
+<script>
+
+
+    let image, rightbox, leftbox, data;
+
+    function doFirst() {
+        //先跟HTML畫面產生關聯，再建事件聆聽功能
+        image = document.querySelector(".image");
+        image.addEventListener("dragstart", startDrag);
+
+        rightbox = document.querySelector("#rightbox");
+        rightbox.addEventListener("dragover", p_dragover);
+        rightbox.addEventListener("drop", dropped);
+
+        leftbox = document.querySelector("#leftbox");
+        leftbox.addEventListener("dragover", p_dragover);
+        leftbox.addEventListener("drop", dropped);
+    }
+
+    function startDrag(e) {
+        data = `<img src="${e.target.src}" class="image">`;
+    }
+
+    function dropped(e) {
+        console.log(e);
+        // e.preventDefault();
+        if (e.target != leftbox && e.target != rightbox) {
+            e.target.parentNode.innerHTML = data;
+        } else {
+            e.target.innerHTML = data;
+        }
+        image.addEventListener("dragend", endDrag);
+    }
+
+    function endDrag(e) {
+        e.target.parentNode.innerHTML = '';
+        doFirst();
+    }
+
+    function p_dragover(e) {
+        e.preventDefault();
+    }
+
+    window.addEventListener("load", doFirst);
+
+
+
+</script>
+
+</html>

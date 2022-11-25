@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document Object Model</title>
+    <style>
+        .change_style{
+            color: red;
+            font-size: 30px;
+        }
+        .change_style2{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <p><a href="#">這是連結</a></p>
+        <p>另一個段落</p>
+        <ul>
+            <li>項目一</li>
+            <li>項目二</li>
+            <li>項目三</li>
+        </ul>
+    </article>
+    <!-- p標籤內不能放div標籤，會有解析錯誤的情況 -->
+    <p>這是段落<div>這是 div 區塊</div></p>
+
+    <p id="p1">這是段落1</p>
+    <a href="https://tw.yahoo.com" target="_blank" id="link1">這是連結1</a>
+    <a href="https://tw.yahoo.com" target="_blank" id="link2">這是連結2</a>
+    <p id="test">測試段落</p>
+    <button type="button" id="the_btn">按鈕</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#p1").attr("id");
+        $("#p1").attr("id", "another_id");
+        // $("a#link2").attr("href", "https://www.momoshop.com.tw/main/Main.jsp").attr("style", "color: red;font-size: 30px;");
+        $("a#link2").attr({
+            "href": "https://www.momoshop.com.tw/main/Main.jsp",
+            "style": "color: red;font-size: 30px;"
+        });
+        $("a#link2").removeAttr("style");
+
+        console.log( $("p").attr("id") );
+        // 使用JS原本的語法
+        console.log( $("p").get(4).getAttribute("id") );
+        console.log( $("p")[4].getAttribute("id") );
+
+        $("p#test").addClass("change_style");
+        let p_el = document.getElementById("test");
+        p_el.classList.add("JS_style");
+
+        if( $("p.change_style").hasClass("change_style2") ){
+            //alert("存在");
+            console.log("存在");
+        }else{
+            //alert("不存在");
+            console.log("不存在");
+        }
+
+        $("#the_btn").on("click", function(){
+            $("p.change_style").toggleClass("change_style2");
+        });
+    </script>
+</body>
+</html>

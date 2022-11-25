@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-Hant">
+    <head>
+        <meta charset="utf-8">
+        <title>網頁標題</title>
+
+        <link href="./css/index.css" rel="stylesheet">
+
+        <!--
+        <style> css語法
+            table{
+                border: 1px solid black;
+                border-collapse: collapse;   
+                /*css註解寫法, separate(預設) */
+            }
+            table th, table td{
+                border: 1px solid black;
+            }
+            h1{
+                color: red;
+                font-size: 20px;
+                text-decoration:underline;
+                margin-top: 100px;
+            }
+            建議放在head結束標籤之前，不建議放在body標籤中
+            因瀏覽器
+        </style>
+        -->
+    </head>
+    <body>
+        <h1>h1標題</h1>
+        <h1>內容大標題</h1>
+        <h2>2標題</h2>
+        <h3>3標題</h3>
+        <h4>4標題</h4>
+        <h5>5標題</h5>
+        <h6>6標題</h6>
+        <hr>
+        <p>這是<br>段落</p>
+
+        <pre>
+            fhaf dls
+            test
+        </pre>
+    
+
+    <!--
+    註解  註解不要寫機密資訊
+    123
+    gfgf
+    -->  
+        <ol>
+            <li>第一項</li>
+            <li>第二項</li>
+            <li>第三項</li>
+            <!--ol/ul標籤中第一層子元素一定要是li標籤-->
+        </ol>
+        <ul>
+            <li>第一項</li>
+            <li>第二項</li>
+            <li>第三項</li>
+        </ul> 
+        <a href="https://www.google.com.tw/" target="_blank">google 連結</a>
+        <a href="./product.html">Product頁面</a> 
+        <!--相對路徑.代表此檔案所在的當層資料夾，即practice資料夾-->
+        <a href="../abc.html">abc頁面</a>
+        <!--相對路徑..代表此檔案的上層資料夾，即html_css資料夾-->
+        <!--a標籤屬於行類類型的標籤，不會自動換行-->
+        <br>
+
+        <img src="./images/butterfly.png" alt="圖片替代文字">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">4</td>
+                    <!-- <td>5</td> -->
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td rowspan="2">9</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>11</td>
+                    <!-- <td>12</td> -->
+                </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+            <!--th是把表格內容視為標題，td則是把表格內容視為內容-->
+        </table>
+
+        <!-- 
+        <iframe src="https://dictionary.cambridge.org/dictionary/english-chinese-traditional/table"></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VvwYM4SIBks" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.011610478266!2d121.56269441423848!3d25.033680044459945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb6e9d93249%3A0xd508f7b3aa02d931!2z5Y-w5YyXMTAx6KeA5pmv5Y-wIFRhaXBlaSAxMDEgb2JzZXJ2YXRvcnk!5e0!3m2!1szh-TW!2stw!4v1661916880866!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> 
+        -->
+        <!--註解不能用巢狀式註解-->
+        <span>span標籤文字</span>
+        <span>span標籤文字</span>
+
+        <div>div標籤文字</div>
+        <div>div標籤文字</div>
+        <!--span標籤與div標籤並無語意，但作為排版使用非常頻繁-->
+        5 &gt; 2
+
+        <form action="#" method="#">
+            <input type="text">
+            <input type="password">
+            <textarea></textarea>
+            <br>
+            <input type="checkbox">
+            <br>
+            <input type="radio" name="1"> 葷
+            <input type="radio" name="1"> 素
+            <button type="button">按鈕</button>
+        </form>
+    </body>
+</html>

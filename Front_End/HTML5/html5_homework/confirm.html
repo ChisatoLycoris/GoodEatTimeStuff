@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>Confirm</title>
+    <style>
+      img#product_image{
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>該瀏覽器有支援 worker 嗎？<span id="worker_enabled"></span></p>
+    <p>請於 <span id="countdown"></span> 秒內按「確認」按鈕，確認資訊的正確性。否則將返回前一頁。</p>
+    <hr>
+    <h1>Confirm 頁面</h1>
+
+    <h2>商品名稱：<span id="product_name"></span></h2>
+    <p>商品數量：<span id="product_count"></span></p>
+    <p>位置資訊經度：<span id="lng"></span></p>
+    <p>位置資訊緯度：<span id="lat"></span></p>
+    <p>商品圖：</p>
+    <img id="product_image" src="">
+    <div>
+      <button type="button" id="btn_confirm">確認</button>
+      <button type="button" id="btn_back">重填</button>
+    </div>
+
+    <script>
+      var worker_countdown;
+      window.addEventListener("load", function(e){
+
+        // 將資料於頁面上呈現
+        var preview_func = function(){
+          var product_name_el = document.getElementById("product_name");
+          var product_count_el = document.getElementById("product_count");
+          var lng_el = document.getElementById("lng");
+          var lat_el = document.getElementById("lat");
+          var product_image_el = document.getElementById("product_image");
+
+          var form_data = JSON.parse(sessionStorage.getItem("form_data"));
+          console.log(form_data);
+          product_name_el.innerHTML = form_data.p_name;
+          product_count_el.innerHTML = form_data.p_count;
+          lng_el.innerHTML = form_data.position.lng;
+          lat_el.innerHTML = form_data.position.lat;
+          product_image_el.setAttribute("src", form_data.img_base64);
+        };
+
+        preview_func();
+
+
+
+        // 啟動 worker 計時
+        var worker_countdown_func = function(){
+          if (window.Worker) {
+            document.getElementById("worker_enabled").innerHTML = "有支援";
+
+            worker_countdown = new Worker("./js/worker_countdown.js");
+            worker_countdown.postMessage(10); // 倒數幾秒
+            worker_countdown.onmessage = function(e) {
+              // e.data 可接收到回傳的資料
+              console.log("收到 worker 來的資料：" + e.data);
+              if(e.data >= 0){
+                document.getElementById("countdown").innerHTML = e.data;
+              }else{
+                history.back();
+              }
+            }
+
+          }else{
+            document.getElementById("worker_enabled").innerHTML = "不支援";
+          }
+        };
+
+        worker_countdown_func();
+
+
+
+
+        // 按鈕的 click 事件綁定
+        var btn_confirm_el = document.getElementById("btn_confirm");
+        btn_confirm_el.addEventListener("click", function(){
+          worker_countdown.terminate();
+          alert("感謝您的確認。");
+        });
+
+        var btn_back_el = document.getElementById("btn_back");
+        btn_back_el.addEventListener("click", function(){
+          history.back();
+        });
+
+      });
+    </script>
+  </body>
+</html>

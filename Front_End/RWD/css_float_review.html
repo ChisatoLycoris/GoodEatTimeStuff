@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+    <style>
+        div.float_block{
+            border: 1px solid green;
+            /*   不要用overflow來處理圖片突出邊框的問題 */
+            /*   overflow: hidden; */
+        }
+
+        div.float_block::after{
+            content: "";
+            /* border: 1px solid blue; */
+            display: block;
+            clear: both;
+        }
+
+
+        div.float_block img.inner_img{
+            float: right; /* none(預設) | left | right */
+        }
+    </style>
+</head>
+<body>
+    <!-- float: none | left | right -->
+    <div class="float_block">
+        <!-- ::before  pseudo element-->
+        <img src="https://alldata.sgp1.digitaloceanspaces.com/images/apple.png" class="inner_img">
+        這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這這是文字這這這
+        <!-- ::after  pseudo element-->
+    </div>
+</body>
+</html>

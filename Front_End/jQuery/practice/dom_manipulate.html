@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="the_div">
+        這是 div 區塊
+    </div>
+    <button type="button" id="append_btn">append按鈕</button>
+    <button type="button" id="prepend_btn">prepend按鈕</button>
+
+    <ul>
+        <li>項目一</li>
+        <li>項目二</li>
+        <li>項目三</li>
+    </ul>
+      
+    <button type="button" id="before_btn">before按鈕</button>
+    <button type="button" id="after_btn">after按鈕</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#append_btn").on("click", function(){
+            $("#the_div").append("<p>段落</p>");
+            //元素.insertAdjacentHTML("beforeend", '<p>dddd</p>');
+        });
+
+        var i = 0;
+        $("#prepend_btn").on("click", function(){
+            i++;
+            $("#the_div").prepend("<p>段落" + i + "</p>");
+        });
+
+        $("#before_btn").on("click", function(){
+            $("ul li").eq(1).before("<li>新項目</li>");
+        });
+
+        $("#after_btn").on("click", function(){
+            $("ul li").eq(1).after("<li>新項目</li>");
+        });
+    </script>
+</body>
+</html>

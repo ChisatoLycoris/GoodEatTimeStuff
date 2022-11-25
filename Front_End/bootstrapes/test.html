@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="hi"></h1>
+    <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody id="spy"></tbody>
+    </table>
+  
+    <script>
+        const hi = 'Hello World';
+        const URL = './test01.json';
+        function init() {
+          // 取得 id
+          document.querySelector('#hi').textContent = hi;
+      
+          // AJAX
+          // $.ajax
+          // fetch 2015 瀏覽器原生的
+      
+          // 取得table的 id
+          const spy = document.querySelector('#spy');
+      
+          // 相對路徑
+          // 先找到 URL
+          fetch(URL)
+            // 把資料轉JSON
+            .then((res) => res.json())
+            // 處理資料
+            .then((data) => {
+              // table
+              console.log(spy);
+              // 資料
+              console.log(data);
+      
+              // innerHTMl
+              // <tr>
+              //   <td>1</td>
+              //   <td>2</td>
+              //   <td>3</td>
+              // </tr>
+              spy.innerHTML = data.map((e) => Template(e.id, e.name, e.age)).join('');
+            });
+        }
+        function Template(id, name, age) {
+          return `<tr>
+              <td>${id}</td>
+              <td>${name}</td>
+              <td>${age}</td>
+              </tr>
+              `;
+        }
+        window.onload = init;
+    </script>
+      
+</body>
+</html>

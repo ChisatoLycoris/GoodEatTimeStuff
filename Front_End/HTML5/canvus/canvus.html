@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      canvas{
+        border: 1px solid #cccccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas_item">
+      不支援 HTML5 Canvas(如果瀏覽器不支援 canvas，就會顯示此文字)
+    </canvas>
+    
+    <script>
+      // 第一步：等待頁面 load 事件事發
+      window.addEventListener("load", function(){
+        draw_rect();
+      });
+
+      function draw_rect(){
+
+        // 第二步：取得 id="canvas_item" 元素
+        var canvas = document.getElementById("canvas_item");
+
+        // 第三步：從 canvas 中，取得 2D context 物件
+        var context = canvas.getContext("2d");
+
+        // 第四步：使用 context 繪圖
+        context.fillStyle = "#ff0000";
+        context.fillRect(10,10, 100,100);
+      }
+    </script>
+  </body>
+</html>

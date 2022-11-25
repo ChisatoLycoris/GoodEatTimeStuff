@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="get_position">點擊按鈕追蹤</button>
+    <button type="button" id="stop_watch">點擊按鈕停止追蹤</button>
+
+    <p>watcherID：<span id="watcherID"></span></p>
+    <p>經度：<span id="lng"></span></p>
+    <p>緯度：<span id="lat"></span></p>
+    <p>時戳：<span id="timestamp"></span></p>
+
+    <script>
+        // 傳入 timestamp，然後回傳「時:分:秒」
+        function parse_from_timestamp(unix_timestamp){
+            var date = new Date(unix_timestamp);
+            return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        }
+
+        var watcherID;
+
+        document.getElementById("get_position").addEventListener("click", function(){
+        
+            if (navigator.geolocation) { // 判斷瀏覽器是否有支援地理定位功能
+                
+                navigator.geolocation.clearWatch(watcherID);
+                
+                // 會以非同步方式，取得定位資訊(需要等待一點時間)
+                watcherID = navigator.geolocation.watchPosition(function(position){
+                
+                    console.log(position); // 於 console 中，查看 position
+                    
+                    document.getElementById("lng").innerHTML = position.coords.longitude; // 經度
+                    document.getElementById("lat").innerHTML = position.coords.latitude;  // 緯度
+                    document.getElementById("timestamp").innerHTML = parse_from_timestamp(position.timestamp);  // 時戳
+                
+                }, function(error){
+                    alert('使用者不同意取得位置資訊或尚未取得位置資訊：ERROR(' + error.code + '): ' + error.message);
+                }, {
+                    enableHighAccuracy: true,
+                    maximumAge        : 0,
+                    timeout           : 5000
+                });
+                
+                document.getElementById("watcherID").innerHTML = watcherID;
+                
+            } else {
+                alert("瀏覽器不支援 Geolocation 功能");
+            }
+            
+        });
+
+        document.getElementById("stop_watch").addEventListener("click", function(){
+            navigator.geolocation.clearWatch(watcherID); // 停止追蹤
+        });
+
+    </script>
+</body>
+</html>

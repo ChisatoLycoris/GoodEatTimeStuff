@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" class="the_text" value="587">
+        <button type="button" id="the_btn1">取值</button>
+        <button type="button" id="the_btn2">放入這個值</button>
+    </div>
+    <br>
+    <div>
+        <textarea id="the_textarea"></textarea>
+        <button type="button" id="the_btn3">按鈕</button>
+    </div>
+    <br>
+    <div>
+        <select name="the_select">
+            <option value="1">選項一</option>
+            <option value="2" selected>選項二</option>
+            <option value="3">選項三</option>
+        </select>
+        <button type="button" id="btn1">取值</button>
+        <button type="button" id="btn2">放入這個值</button>
+        <button type="button" id="btn3">設定到[選項3]</button>
+        <button type="button" id="btn4">取文字</button>
+    </div>
+    <br>
+    <div>
+        <input type="checkbox" id="the_check" value="123">
+        <button type="button" id="check_btn1">取文字</button>
+        <button type="button" id="check_btn2">勾選/取消勾選</button>
+    </div>
+    <br>
+    <div>
+        <input type="checkbox" name="habits[]" class="item" value="1">
+        <input type="checkbox" name="habits[]" class="item" value="2">
+        <input type="checkbox" name="habits[]" class="item" value="3">
+        <button type="button" id="check_btn3">取得有勾選到的那些選項</button>
+    </div>
+    <br>
+    <div>
+        <input type="radio" name="food_type" id="check1" value="1" checked>
+        <input type="radio" name="food_type" id="check2" value="2">
+        <input type="radio" name="food_type" id="check3" value="3">
+        <button type="button" id="radio_btn1">取文字1</button>
+        <button type="button" id="radio_btn2">取文字2</button>
+        <button type="button" id="radio_btn3">選取第三項</button>
+    </div>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_btn1").on("click", function(){
+            // 取得欄位的值
+            alert( $("input.the_text").val() ); // 元素.value
+        });
+  
+        $("#the_btn2").on("click", function(){
+            // 設定值
+            $("input.the_text").val("放入這個值"); // 在 value 中，建議用這個，較通用，
+            // 元素.value = ""
+            //$("input.the_text").attr("value", "放入這個值"); // 在 defaultValue 中
+        });
+
+        $("#the_btn3").on("click", function(){
+            //console.log( $("#the_textarea").val() );
+            $("#the_textarea").val("這是文字\n第二行");
+            //元素.innerHTML = "資料";
+        });
+
+        $("#btn1").on("click", function(){
+            // 取得欄位的值
+            alert( $("select[name='the_select']").val() );
+        });
+
+        $("#btn2").on("click", function(){
+            // 設定
+            $("select[name='the_select']").val("2");
+        });
+
+        $("#btn3").on("click", function(){
+            // $("select[name='the_select'] option[value='3']").prop("selected", true);
+            if( $("select[name='the_select'] option[value='3']").prop("selected") ){
+                alert("有選到");
+            }else{
+                alert("沒有選到");
+            }
+        });
+
+        $("#btn4").on("click", function(){
+            // 透過:selected取得該option文字
+            alert($("select[name='the_select'] :selected").text());
+
+        });
+
+        $("#check_btn1").on("click", function(){
+            $("#the_check").val("567");
+            //alert( $("#the_check").val() );
+        });
+
+        $("#check_btn2").on("click", function(){
+            if( $("#the_check").prop("checked") ){
+                $("#the_check").prop("checked", false);
+            }else{
+                $("#the_check").prop("checked", true);
+            }
+        });
+
+        $("#check_btn3").on("click", function(){
+            $("input.item:checked").each(function(i, item){
+                // console.log(i);
+                // console.log(item);
+                // alert( $(item).val() )
+                alert( $(this).val() );
+            });
+        });
+
+        $("#radio_btn1").on("click", function(){
+            alert($("#check1").prop("checked"));
+            alert($("#check2").prop("checked"));
+            alert($("#check3").prop("checked"));
+        });
+
+        $("#radio_btn2").on("click", function(){
+            alert( $("input[name='food_type']:checked").val() );
+        });
+
+        $("#radio_btn3").on("click", function(){
+            $("#check3").prop("checked", true);
+        });
+
+    </script>
+</body>
+</html>

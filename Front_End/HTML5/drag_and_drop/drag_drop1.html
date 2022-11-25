@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag and Drop</title>
+    <style>
+        #div1{
+            border: 1px dashed gray;
+            width: 100%;
+            height: 200px;
+        }
+        .enter{
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <img id="drag1" src="./image/apple.png">
+
+    <!-- <a href="#" id="drag1">test</a> -->
+
+    <!-- <p id="drag1" draggable="true">這是段落</p> -->
+
+    <script>
+        window.addEventListener("load", function(){
+
+            // 圖片可以拖曳，加上 dragstart 事件
+            var drag1 = document.getElementById("drag1");
+            drag1.addEventListener("dragstart", function(e){
+                //console.log(e);
+
+                //console.log(e.target.id);
+                e.dataTransfer.setData("el_id", e.target.id);
+            });
+
+            // div 區塊允許其它元素拖曳至此
+            var div1 = document.getElementById("div1");
+            div1.addEventListener("dragover", function(e){
+                e.preventDefault();
+                //console.log("aaa");
+            });
+
+            // drop 事件發生時
+            div1.addEventListener("drop", function(e){
+                //e.preventDefault(); // 如果是從電腦檔案拖曳過來，就停掉預設行為
+                
+                //console.log(e.dataTransfer.getData("el_id"));
+
+                //console.log("drop 觸發");
+                var data = e.dataTransfer.getData("el_id"); // 取得拖曳元素的 id(此例為圖片)
+                
+                //console.log(data);
+                e.target.appendChild(document.getElementById(data)); // 將圖片元素放入 div
+            
+            });
+
+            // 拖曳進去
+            div1.addEventListener("dragenter", function(e){
+                div1.classList.add("enter"); // 加上 class
+            });
+
+            // 拖曳離開
+            div1.addEventListener("dragleave", function(e){
+                div1.classList.remove("enter"); // 移除 class
+            });
+
+            // 拖曳效果整個結束
+            drag1.addEventListener("dragend", function(e){
+                alert("拖曳效果結束");
+                div1.classList.remove("enter"); // 移除 class
+            });
+
+        });
+    </script>
+</body>
+</html>

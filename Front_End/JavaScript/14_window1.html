@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btn">google</button>
+    <button id = "btnReload">reload</button>
+    <script>
+        // document.write(window.innerWidth, "<br>");
+        // document.write(window.innerHeight, "<br>");
+        // function init() {
+        //     console.log(window.innerWidth)
+        // };
+        // window.addEventListener("resize", init);
+        function goGoogle() {
+            location.href = "http://www.google.com/"
+        }
+        document.querySelector("#btn").addEventListener("click", goGoogle);
+        
+        function goReload() {
+            location.reload();
+        }
+        document.querySelector("#btnReload").addEventListener("click", goReload);
+    </script>
+</body>
+</html>

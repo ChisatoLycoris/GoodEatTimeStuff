@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>String</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    var str = "abcdeabcde";
+    var obj = new String(123);
+    document.write("length : ", str.length, "<br>"); //10
+    document.write("toUpperCase() : ", str.toUpperCase(), "<br>"); //ABCDEABCDE
+
+    document.write("typeof str : ", typeof str, "<br>"); // string
+    document.write("typeof obj : ", typeof obj, "<br>"); // object
+
+    document.write("indexOf('cd') : ", str.indexOf("cd"), "<br>"); //2
+    document.write("indexOf('cdd') : ", str.indexOf("cdd"), "<br>"); //-1 找不到
+
+    document.write("lastIndexOf('cd') : ", str.lastIndexOf("cd"), "<br>"); //7  找到最後的'cd'
+    document.write("lastIndexOf('cdd') : ", str.lastIndexOf("cdd"), "<br>"); //-1
+
+    document.write("match('cd') : ", str.match("cd"), "<br>"); //cd 
+    document.write("match('cdd') : ", str.match("cdd"), "<br>"); //null
+
+    document.write("charAt(3) : ", str.charAt(3), "<br>"); //d
+
+    document.write("substr(2,5) : ", str.substr(2, 5), "<br>"); //cdeab 從陣列二 含自己五個
+    document.write("substr(2) : ", str.substr(2), "<br>"); //cdeabcde 從陣列二 含自己後面都有
+    document.write("substring(2,5) : ", str.substring(2, 5), "<br>"); //cde 從陣列二 含自己到陣列五之前
+
+    document.write("replace('de','QQQ') : ", str.replace("de", "QQQ"), "<br>");
+    document.write("replace(/de/g,'QQQ') : ", str.replace(/a/g, "QQQ"), "<br>");//全部的a都換
+
+    document.write("<hr>");
+
+    var url = "www.lib.ncu.edu.tw";
+    var arr = url.split(".");
+    for (let i in arr) {
+      document.write(i, " : ", arr[i], "<br>");
+    }
+
+    document.write("<hr>");
+
+      //---------------------------------------------------------
+
+  </script>
+</body>
+
+</html>

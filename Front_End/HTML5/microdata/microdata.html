@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 加上 itemtype 的值為「Movie」類型 -->
+    <div itemscope itemtype="https://schema.org/Movie">
+    
+        <h1 itemprop="name">少年 Pi 的奇幻漂流</h1>
+
+        <img itemprop="image" src="https://alldata.sgp1.digitaloceanspaces.com/images/pi.jpg">
+        
+        <div>
+            <span itemprop="dateCreated" content="2012-11-21">2012年11月21日</span>
+        </div>
+
+        <div itemprop="description">
+        是一部李安執導的美國3D電影，於2012年11月21日上映，編劇David Magee根據加拿大作家揚·馬特爾於2001年發表的同名小說改編而成。
+        </div>
+    
+        <!-- 加上 itemtype 的值為「Person」類型 -->
+        <div itemprop="director" itemscope itemtype="https://schema.org/Person">
+        導演：<span itemprop="name">李安</span>
+        </div>
+        
+        <!-- 加上 itemtype 的值為「Person」類型 -->
+        <div itemprop="actor" itemscope itemtype="https://schema.org/Person">
+        <span itemprop="name">蘇瑞吉·沙瑪</span>,
+        <span itemprop="name">伊凡·卡漢</span>
+        </div>
+    
+    </div>
+</body>
+</html>

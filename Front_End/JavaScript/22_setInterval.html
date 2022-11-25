@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #divNum{
+            font-size: 50px;
+            background-color: brown;
+            color:white;
+            width: 500px;
+            padding: 50px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="divNum">5</div>
+    <script>
+        var num = 5;
+        var timerId; //set timer
+
+        function countDown() {
+            num--;
+            if(num == 0) {
+                num = "Happy new year";
+                clearInterval(timerId);
+            }
+            document.querySelector("#divNum").innerText = num;
+        }
+
+        function init() {
+            timerId = setInterval(countDown, 1000);
+        }
+
+        init();
+    </script>
+</body>
+</html>

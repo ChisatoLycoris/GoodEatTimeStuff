@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btn">
+        Click
+    </button>
+    <script>
+        function clickBtn() {
+            // alert("^________^");
+            
+            // var ans = confirm("Are you sure?");
+            // // console.log(ans);
+            // if(ans === true) {
+            //     console.log("ok");
+            // }else{
+            //     console.log("not bad");
+            // }
+
+            var ans = prompt("please enter your name");
+            console.log(ans);
+        };
+        document.querySelector("#btn").addEventListener("click", clickBtn);
+        
+    </script>
+</body>
+</html>

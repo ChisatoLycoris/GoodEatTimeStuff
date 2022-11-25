@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">add</button>
+    <button id="btnDelete">Delete</button>
+    <div id="app">
+        <!-- <div class="box">I am here</div> -->
+    </div>
+
+    <script>
+        let app = document.querySelector("#app");
+        function bye() {
+            if(document.querySelectorAll('.box').length!=0){ //如果有'我在這'我才移除
+            app.removeChild(app.lastChild);//移除最後一個'我在這'
+        }
+}
+        function show(){
+            // console.log("clicked");
+            // var app = document.querySelector("#app");
+            var newNode = document.createElement("div");
+            var newNodeText = document.createTextNode("I am here");
+
+            newNode.setAttribute("class", "box");
+            newNode.append(newNodeText);
+            app.appendChild(newNode);
+
+            // var newNode = "I am here"
+            // app.append(newNode);
+            // app.appendChild(newNode);
+        }
+
+        function init(){
+            document.querySelector("#btn").addEventListener("click", show);
+            document.querySelector('#btnDelete').addEventListener('click', bye);
+        }
+
+        window.addEventListener("load", init);
+    </script>
+</body>
+</html>

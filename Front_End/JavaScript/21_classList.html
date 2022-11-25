@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .eye{
+            border:1px solid red;
+        }
+        /* .eye{
+            padding: 10px;
+            margin: 10px;
+            border: 2px solid blue;
+        } only overwrite the duplicate attribute, new attribute will be simplily added to the orginal css*/
+        .newEye{
+            border: 4px solid greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn">click</button>
+    <br>
+    <img class="eye" src="img/eye.svg" alt="" width="200">
+    <script>
+        function changeImg() {
+            document.querySelector(".eye").classList.add("newEye");
+            console.log(document.querySelector(".eye").getAttribute("src"));
+            document.querySelector(".eye").setAttribute("src", "img/hidden.svg")
+        }
+        document.querySelector("#btn").addEventListener("click", changeImg)
+    </script>
+</body>
+</html>

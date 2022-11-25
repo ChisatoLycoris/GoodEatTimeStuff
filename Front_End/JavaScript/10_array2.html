@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: indianred;
+        }
+        .myTable,
+        .myTable  tr,
+        .myTable  td{
+            border:1px solid rgb(95, 43, 192);
+            border-collapse:collapse;
+            text-align: center;
+            padding: 5px 8 px;
+        }
+        .myTable tr:first-child{
+            background-color: rgb(95, 43, 192);
+            color: white;
+        }
+        div{
+            color: green;
+        }
+        .box{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class = box> i am div</div>
+    <div> i am div</div>
+
+    <h2>2 dimension array</h2>
+    <script>
+        var arr = [
+            [1, 2, 3],
+            [11, 12, 13],
+            [21, 22, 23],
+            [31, 32, 33]
+        ];
+        document.write(arr[0] + "<br>");
+        document.write(arr[0][0] + "<br>");
+        document.write(arr[1][2] + "<br>");
+
+        document.write("<hr>")
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr[i].length; j++) {
+                document.write(arr[i][j] + "<br>");
+            }
+        }
+    </script>
+    <h2>2 dimension array with table</h2>
+    <script>
+        var arr = [
+            [1, 2, 3, 4],
+            [11, 12, 13, 14],
+            [21, 22, 23, 24],
+            [31, 32, 33, 34]
+        ];
+
+        document.write("<table>");
+        for (var i = 0; i < arr.length; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < arr[i].length; j++) {
+                document.write("<td>" + arr[i][j] + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+    <h2>table practice</h2>
+    <script>
+        var arr = [
+            ["學號", "姓名", "電話", "地址"],
+            ["94951001", "黃一丁", "0911000333", "台北"],
+            ["94951002", "劉二毛", "0922999887", "桃園"],
+            ["94951003", "張大化", "0933555779", "台南"]
+        ]
+        document.write("<table class = myTable>");
+        // document.write("<th>")
+        // for (var i = 0; i < arr[0].length; i++) {
+        //     document.write("<td>" + arr[0][i] + "</td>");
+        // }
+        // document.write("/<th>")
+        for (var i = 0; i < arr.length; i++) {
+            document.write("<tr>");
+            for (var j = 0; j < arr[i].length; j++ ) {
+                document.write("<td>" + arr[i][j] + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("<talbe>");
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: navy;
+        }
+    </style>
+</head>
+<body>
+    <h2>socpe of a variable</h2>
+    <script>
+        var a;
+        a = 10;
+        var b = 20;
+        c = 30;
+        function test(m, n) {
+            var d = 40;
+            a = 100;
+            d = 400;
+            e = m + n;
+        }
+        test(1,2);
+        document.write(a);
+        document.write(b);
+        document.write(c);
+        document.write(d);
+        document.write(e);
+    </script>
+    <h2>scope of variavle practice</h2>
+    <script>
+        var x = 1;
+        function hoisting_scope(y) {
+            // var x
+            document.write(x + "<br>");
+            var x = 100;
+            return x + y;
+        }
+        document.write(hoisting_scope(50) + "<br>");
+        document.write(x + "<br>");
+    </script>
+    <h2>immediate functioin</h2>
+    <script>
+        (function(){
+            document.write("I am an immediate function")
+        }) ();
+    </script>
+</body>
+</html>

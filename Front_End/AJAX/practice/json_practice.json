@@ -1,0 +1,12 @@
+{
+    "msg": "success",
+    "data": [{
+      "book_name": "書名一",
+      "book_price": 299
+    }, {
+      "book_name": "書名二",
+      "book_price": 399
+    }],
+    "verification tool":"http://json.parser.online.fr/"
+}
+  

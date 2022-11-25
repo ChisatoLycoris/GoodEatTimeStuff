@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-Hang">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Form</title>
+</head>
+<body>
+    <form auction="http://notes.webmix.cc/ex_post.php" method="get">
+        <div> 
+            <label for="username">帳號:</label>
+            <input type="text" id="username">
+        </div>
+        <div>
+            <label for="passpowrd">密碼:</label>
+            <input type="text" id="passward">
+        </div>
+        <div>
+            <label>飲食:</label>
+            <input type="radio" name="food_type" value="葷" id="type1" checked><label for="type1">葷</label>
+            <input type="radio" name="food_type" value="素" id="type2"><label for="type2">葷</label>
+        </div>
+        <div>
+            <label>人數:</label>
+            <select name="num">
+                <option value="1">一位</option>
+                <option value="2">二位</option>
+                <option value="3">三位</option>
+            </select>
+        </div>
+        <div>
+            <label>興趣:</label>
+            <input type="checkbox" name="habits[]" value="運動" id="habit1" for="habit1">
+            <label>運動</label>
+            <input type="checkbox" name="habits[]" value="電影" id="habit2" for="habit2">
+            <label>電影</label>
+            <input type="checkbox" name="habits[]" value="旅遊" id="habit3" for="habit3">
+            <label>旅遊</label>
+        </div>
+        <div>
+            <label>其他事項:</label><br>
+            <textarea rows="10" cols="30" name="notes"></textarea>
+        </div>
+        <div>
+            <button type="submit">資料送出</button>
+        </div>
+    </form>
+    
+</body>
+</html>

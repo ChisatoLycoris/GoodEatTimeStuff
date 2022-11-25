@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iframeRWD</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        div.view{
+            border: 1px solid red;
+            font-size: 0;
+            width: 100%;
+            
+            position: relative;
+            
+            /* padding-top 的 100%，是 div.viw 寬度為 100% 時的 100%。
+                例：div.view 在 100% 時的寬度為 800px(不含邊框)，那以下公式算出來的結果就是 450px。 */
+            padding-top: calc(100% * 9 / 16);
+        }
+        div.view iframe{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <iframe height="315" width="560" class="test"
+     src="https://www.youtube.com/embed/-RAdHJ-aquE" frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+
+
+    <div class="view">
+    
+    <iframe src="https://www.youtube.com/embed/-RAdHJ-aquE" frameborder="0"
+     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+   
+</div>
+</body>
+</html>

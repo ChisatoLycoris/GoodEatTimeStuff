@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chat room</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        div.all_block {
+            position: fixed;
+            right: 20px;
+            bottom: 0;
+            width: 300px;
+            height: 400px;
+            border: 1px solid red;
+        }
+
+        section.result_block {
+            background-color: #efefef;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            border: 5px solid blue;
+            height: calc(100% - 40px);
+            overflow-y: auto;
+        }
+
+        section.result_block div.search_container {
+            position: relative;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%;
+            /*   border: 1px solid red; */
+        }
+
+        section.result_block div.search_container span.text_hint {
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+            color: lightgray;
+            font-size: 2rem;
+            line-height: 1.6;
+        }
+
+        section.result_block div.search_container ul.search_list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            /* border: 1px solid black; */
+            padding: 10px;
+            display: flex;
+            overflow-x: auto;
+        }
+
+        section.result_block div.search_container ul.search_list > li {
+            border: 1px solid gray;
+            border-radius: 5px;
+            overflow: hidden;
+            display: inline-block;
+            width: 200px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        section.result_block div.search_container ul.search_list > li:last-child {
+            margin-right: 0;
+        }
+
+        section.result_block div.search_container ul.search_list > li div.item_block div.img_block {
+            border-bottom: 1px solid gray;
+            font-size: 0;
+        }
+
+        section.result_block div.search_container ul.search_list > li div.item_block div.img_block img {
+            width: 100%;
+        }
+
+        section.result_block div.search_container ul.search_list > li div.item_block div.title_block {
+            font-weight: bold;
+            font-size: 2rem;
+            margin: 10px 0;
+            padding: 0 5px;
+        }
+
+        section.result_block div.search_container ul.search_list > li div.item_block div.description_block {
+            font-size: 1.6rem;
+            line-height: 1.6;
+            padding: 0 5px;
+        }
+
+        section.input_block {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 40px;
+            width: 100%;
+            /* border: 1px solid purple; */;
+        }
+
+        section.input_block input.stock_text {
+            border: 1px solid black;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% - 100px);
+            height: 100%;
+            font-size: 16px;
+            padding: 0 10px;
+            outline: none;
+            border-radius: 0;
+        }
+
+        section.input_block button.send_stock {
+            cursor: pointer;
+            border: 1px solid black;
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            font-size: 16px;
+            text-align: center;
+            color: white;
+            padding: 0;
+            background-color: black;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div style="border: 1px solid red; height: 1000px;"></div> -->
+
+    <div class="all_block">
+    
+        <section class="result_block"><!-- 畫面上的藍框，有設定 overflow-y: auto -->
+            <div class="search_container">
+            </div>
+        </section>
+        
+        <section class="input_block">
+            <input type="text" placeholder="資料" class="stock_text">
+            <button class="send_stock" type="button">送出</button>
+        </section>
+    </div>
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $(function(){
+            $("input.stock_text").on("keydown", function(e){
+                //console.log(e.which);
+                if(e.which == 13){
+                    $("button.send_stock").click();
+                }
+            });
+            
+            $("button.send_stock").on("click", function(){
+                
+                let input_text = ($("input.stock_text").val()).trim();
+                if(input_text == ""){
+                alert("請輸入資料");
+                }else{
+                
+                let html = `
+                    <ul class="search_list">
+                    <li>
+                        <div class="item_block">
+                        <div class="img_block">
+                            <img src="https://via.placeholder.com/250x200">
+                        </div>
+                        <div class="title_block">${input_text}</div>
+                        <div class="description_block">中文字中文字中文字中文字</div>
+                        </div>
+                    </li>
+                    </ul>
+                `;
+
+                $("div.search_container").append(html);
+                
+                
+                // 重點1：以下方式取得 section.result_block(藍框) 的可捲動區域高度(不含邊框)
+                //console.log( $('section.result_block').prop("scrollHeight") );
+                
+                // 重點2：透過 animate 使用 scrollTop 指定要滑動到離上方指定位置      
+                $("section.result_block").animate({
+                    //scrollTop: 10
+                    scrollTop: $('section.result_block').prop("scrollHeight")
+                }, 500);
+                
+                
+                // 欄位清空
+                $("input.stock_text").val("");
+                
+                }
+            });
+            
+        });
+    </script>
+</body>
+</html>

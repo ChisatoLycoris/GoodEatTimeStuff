@@ -1,0 +1,108 @@
+/* th.prod__cart__head1 {
+    padding-left: 15px;
+    border: 1px solid blue;
+}
+th.prod__cart__head2 {
+    padding-left: 45px;
+    border: 1px solid blue;
+}
+th.prod__cart__head3 {
+    padding-left: 25px;
+    border: 1px solid blue;
+} */
+
+/* ================================= shopping cart table begin ================================= */
+thead > tr > th {
+    color: white !important;
+    background-color: black;
+    padding: 13px 1px 13px 25px !important;
+    cursor: pointer;
+    /* vertical-align: middle; */
+    /* text-decoration-color: white; */
+}
+thead span.-plus {
+    display: inline-block;
+}
+thead span.-minus {
+    display: none;
+}
+table.-on span.-plus {
+    display: none;
+}
+table.-on span.-minus {
+    display: inline-block;
+}
+tbody.prod__cart__items > tr {
+    display: none;
+}
+span.icon_close {
+    cursor: pointer;
+}
+/* thead.-on + tbody.prod__cart__items > tr {
+    display: initial;
+} */
+div.table__divider {
+    height: 30px;
+}
+/* ================================= shopping cart table end ================================= */
+
+/* ================================= coupon choosing begin ================================= */
+div.cart__discount {
+    margin-bottom: 40px;
+}
+h6.cart__discount__code {
+    padding-top: 13px;
+}
+form.cart__discount__form {
+    height: 50.5px;
+}
+form.cart__discount__form > div.selected__coupon__mask{
+    height: 50.5px;
+    width: 70%;
+}
+form.cart__discount__form  div.nice-select{
+    height: 50.5px;
+    width: 100%;
+}
+form.cart__discount__form  div.nice-select > span{
+    position: absolute;
+    top: 5px;
+}
+form.cart__discount__form  div.nice-select > ul.list{
+    /* height: 50.5px; */
+    width: 100%;
+}
+form.cart__discount__form > button{
+    height: 50.5px;
+    width: 30%;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    form.cart__discount__form > button{
+        padding:0 10px 0 10px;
+    }
+}
+div.cart__discount__alert span {
+    visibility: hidden;
+    color:red;
+}
+div.cart__discount__alert span.-on {
+    visibility: visible;
+    color:red;
+}
+/* ================================= coupon choosing end ================================= */
+
+/* ================================= amount check area begin ================================= */
+div.continue__btn.update__btn {
+    padding-top: 50px;
+    text-align: center;
+}
+div.cart__total li.coupon__using {
+    display: none;
+}
+div.cart__total li.-on {
+    border-top: 1px solid lightgrey;
+    margin-top: 10px;
+    height: 60px;
+}
+/* ================================= amount check area end ================================= */
+

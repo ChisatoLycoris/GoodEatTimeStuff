@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <style>
+        div.block1{
+            border: 1px solid red;
+        }
+        div.block2{
+            border: 1px solid black;
+            position: fixed;
+            /* top | right | bottom | left */
+            left: 0%;
+            /* transform: translateX(-50%); */
+            bottom: 20px;
+        }
+        div.block3{
+            border: 1px solid green;
+            height: 200px;
+            position: relative;
+            /* top | rignt | bottom | left */
+            /* top: 20px;
+            left: 50px; */
+        }
+        div.block3_inner{
+            border: 1px solid black;
+            position: absolute;
+            /* top | rignt | bottom | left */
+            right: 0;
+            bottom: 0;
+        }
+        div.block4{
+            border: 1px solid blue;
+            height: 300px;
+            /* position: sticky; */
+            /* top | rignt | bottom | left */
+            /* top: 20px; */
+        }
+        div.block4_inner{
+            border: 2px solid orange;
+            height: 100px;
+            position: sticky;
+            top: 0;
+        }
+        div.block5{
+            border: 1px solid orange;
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 5、position: static(default) | fixed | relative | absolute | sticky-->
+    <div class="block1">區塊一</div>
+    <div class="block2">區塊二</div>
+    <div class="block3">
+        區塊三
+        <div class="block3_inner">區塊三裡面</div>
+        其他文字
+    </div>
+    <div class="block4">
+        區塊四
+        <div class="block4_inner">區塊四裡面</div>
+    </div>
+    <div class="block5">區塊五</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+table{
+    border: 1px solid black;
+    border-collapse: collapse;   
+    /*css註解寫法, separate(預設) */
+}
+table th, table td{
+    border: 1px solid black;
+}
+/*
+註解
+*/
+h1{
+    color: red;
+    font-size: 20px;
+    text-decoration:underline;
+    margin-top: 100px;
+}
+/*
+.符號表是class的名稱
+#符號表是id的名稱
+*/

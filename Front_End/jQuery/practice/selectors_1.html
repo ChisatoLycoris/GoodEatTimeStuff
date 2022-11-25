@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery 相關練習 selectors_1</title>
+  </head>
+  <body>
+    <h1>這是標題</h1>
+    <h1 id="my_title">這是我的標題</h1>
+    <p>這是段落1</p>
+    <p class="para para2">這是段落2</p>
+    <p class="para para3">段是段落3</p>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        // 3.1
+        // $("h1").css("color", "red");
+        // $("p").css("color", "red");
+        // $("h1#my_title").css("color", "red");
+        // $(".para").css("color", "red");
+        // $(".para2").css("color", "red");
+        // $("p.para3").css("color", "red");
+
+        // 3.2
+        // $("[id='my_title']").css("color", "red");
+        // $("h1[id='my_title']").css("color", "red");
+        // $("h1[id!='my_title']").css("color", "red");
+        // 這會連 html 、head、body 標籤也加上文字顏色變紅色的樣式
+        // $("[id!='my_title']").css("color", "red");
+        // $("h1[id^='my_']").css("color", "red");
+        // $("h1[id$='tle']").css("color", "red");
+        // $("p[class*='ara']").css("color", "red");
+
+
+    </script>
+  </body>
+</html>

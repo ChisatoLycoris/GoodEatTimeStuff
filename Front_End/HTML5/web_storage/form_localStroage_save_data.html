@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5.6練習</title>
+</head>
+<body>
+    <form action="#" method="#">
+        <div>
+            <label for="product_name">商品名稱:</label>
+            <input type="text" name="product_name" id="product_name">
+        </div>
+        <div>
+            <label for="product_count">商品數量:</label>
+            <input type="text" name="product_count" id="product_count">
+        </div>
+        <button type="button" id="localStorage_save">localStorage 儲存</button>
+        <button type="button" id="localStroage_clear">localStorage 清除</button>
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            document.querySelector("#localStroage_clear").addEventListener("click", function(){
+                localStorage.clear();
+            });
+            document.querySelector("#localStorage_save").addEventListener("click", function(){
+                var userInputName = document.getElementById("product_name").value;
+                var userInputCount = document.getElementById("product_count").value;
+                var userInput = {
+                    product_name: userInputName,
+                    product_count: userInputCount
+                };
+                var myData = [];
+                
+                if (localStorage.getItem("myData") == null) {
+                    // myData[0] = userInput;
+                    myData.push(userInput);
+                } else {
+                    myData = JSON.parse(localStorage.getItem("myData"));
+                    // myData[myData.length] = userInput;
+                    myData.push(userInput);
+                }
+                localStorage.setItem("myData", JSON.stringify(myData));
+                
+            });
+        });
+    </script>
+</body>
+</html>

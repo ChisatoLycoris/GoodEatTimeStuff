@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: plum;
+        }
+    </style>
+</head>
+<body>
+    <h2>if ~ else</h2>
+    <script>
+        var avg = 36;
+        if(avg >= 60) {
+            document.write("pass<br>");
+        }else{
+            document.write("one more semester<br>");
+        }
+    </script>
+    <h2>if ~ elseif ~ else</h2>
+    <script>
+        var name = "cat";
+        if(neme = "cat") {
+            document.write("neko<br>");
+        }else if(name = "dog") {
+            document.write("inu<br>");
+        }else{
+            document.write("unknown creature<br>")
+        }
+    </script>
+    <h2>if example</h2>
+    <script>
+        var year = 2022;
+        if(year > 1919) {
+            document.write("year > 1919<br>");
+        }else if(year > 2009) {
+            document.write("year > 2009<br>");
+        }else if(year > 2020) {
+            document.write("year > 2020<br>");
+        }else{
+            document.write("when?<br>")
+        }
+
+        var year = 2022;
+        if(year > 2020) {
+            document.write("year > 2020<br>");
+        }else if(year > 2009) {
+            document.write("year > 2009<br>");
+        }else if(year > 1919) {
+            document.write("year > 1919<br>");
+        }else{
+            document.write("when?<br>")
+        }
+    </script>
+    <h2>practice</h2>
+    <script>
+        var type = 1;  //1.2.3 type
+        var degree = 0;  //1 for master or above degree, 0 for undergraduate or below degree
+        var money;
+
+        if(type == 1) {
+            if(degree == 1){
+                money = 5000 + 1000;
+            }else{
+                money = 5000;
+            }
+        }else if(type == 2) {
+            money = 3000;
+        }else{
+            money = 1000;
+        }
+        document.write("you can get NTD " + money + "<br>");
+    </script>
+    <h2>if ~ else practice</h2>
+    <script>
+        var text;
+        if (!text) {
+            document.write(text + "<br>");
+        }else{
+            document.write("nothing inside<br>")
+        }
+    </script>
+    <h2>switch</h2>
+    <script>
+        var game = 1;
+        switch (game) {
+            case 1:
+                document.write(game, "animal friend");
+                break;
+            case 2:
+                document.write(game, "zelda");
+                break;
+            default:
+                document.write(game, "no game to play");
+        }
+    </script>
+    <h2>for loop</h2>
+    <script>
+        for(var i = 0; i < 3; i++) {
+            document.write("I love JS <br>");
+        }
+    </script>
+    <h2>for print 1 to 10</h2>
+    <script>
+        let j;
+        for(j = 1; j <=10; j++) {
+            document.write(j);
+        }
+        document.write(j);  // j = 11!!!
+    </script>
+    <h2>print 1,2,...,9,10</h2>
+    <script>
+        for (var i = 1; i <= 10; i++) {
+            if (i < 10) {
+                document.write(i + ",");
+            }else{
+                document.write(i + "<br>");
+            }
+        }
+
+        for (var i = 1; i <= 9; i++) {
+            document.write(i + ",");
+        }
+        document.write(i + "<br>");
+    </script>
+    <h2>calculate summary of 1+2+3+...50</h2>
+    <script>
+        var total = 0;
+        for (var i = 1; i <= 50; i++) {
+            total += i;
+        }
+        document.write("sum:" + total + "<br>");
+    </script>
+    <h2>print summary of all numbers can be divided by 3 from 1 to 50</h2>
+    <script>
+        var total = 0;
+        for (var i = 1; i <= 50; i++) {
+            if (i % 3 == 0) {
+                document.write(i, "<br>");
+                total += i;
+            }
+        }
+        document.write("Sum: ", total, "<br>")
+    </script>
+    <h2>print summary of all numbers can be divided by 3 from 1 to 50 in a better way</h2>
+    <script>
+        var total = 0;
+        for (var i = 3; i <=50; i += 3) {
+            document.write(i, "<br>");
+            total += i;
+        }
+        document.write("Sum: ", total, "<br>")
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日期</title>
+</head>
+
+<body>
+  <script>
+/* new Date() */
+var dayTime = new Date();
+document.write("<b>new Date() 今天的 Date Object：</b><br/>" + dayTime + "<br/><br/>");
+
+var dayTime2 = new Date('2021-01-22');
+document.write("<b>new Date() 定義一個Date Object：</b><br/>" + dayTime2 + "<br/><br/>");
+
+/* getFullYear */
+document.write("<b>getFullYear 年份：</b><br/>" + dayTime.getFullYear() + "<br/>");
+/* getMonth */
+// document.write(
+//   "<b>getMonth 月份：</b><br/>" + dayTime.getMonth() + "<br/>"
+// );
+document.write("<b>getMonth 月份：</b><br/>" + (dayTime.getMonth() + 1) + "<br/>");
+/* getDate */
+document.write("<b>getDate 日期：</b><br/>" + dayTime.getDate() + "<br/><br/>");
+
+/* setHours、setMinutes、setSeconds */
+dayTime.setHours(20);
+dayTime.setMinutes(50);
+dayTime.setSeconds(33);
+document.write("<b>setHours、setMinutes、setSeconds 設定時間：</b><br/>" + dayTime + "<br/><br/>");
+
+
+
+  </script>
+
+  <hr />
+  <div>現在時刻 : <span id="timePanel"></span></div>
+
+  <script>
+    function showTime() {
+      var today = new Date();
+      document.getElementById("timePanel").innerText =
+        today.getHours() +
+        " : " +
+        today.getMinutes() +
+        " : " +
+        today.getSeconds();
+    }
+
+    function do_first() {
+      showTime();
+      setInterval(showTime, 1000);
+    }
+    window.addEventListener("load", do_first);
+  </script>
+
+</body>
+
+</html>
+

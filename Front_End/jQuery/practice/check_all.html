@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="check_all"><label for="check_all">全選</label>
+
+    <hr>
+
+    <input type="checkbox" class="item" id="option1"> <label for="option1">選項一</label>
+    <input type="checkbox" class="item" id="option2"> <label for="option2">選項二</label>
+    <input type="checkbox" class="item" id="option3"> <label for="option3">選項三</label>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#check_all").on("click", function(){
+
+            // 老師優化的寫法
+            $("input.item").prop("checked", $(this).prop("checked"));
+            // 原本自己的寫法
+            // if ($("#check_all").prop("checked")) {
+            //     $("input").prop("checked", true)
+            // } else {
+            //     $("input").prop("checked", false)
+            // }
+        });
+
+        $("input.item").on("click", function(){
+            // 老師優化的寫法
+            $("#check_all").prop("checked", $("input.item:checked").length == $("input.item").length);
+            // 原本自己的寫法
+            // if ($("input.item:checked").length == $("input.item").length) {
+            //     $("#check_all").prop("checked",true);
+            // } else {
+            //     $("#check_all").prop("checked",false);
+            // }
+            
+        });
+
+        // 以下是單純的 JavaScript 寫法
+        /*
+        var check_all = document.getElementById("check_all");
+        check_all.addEventListener("click", function(){
+        
+        var that = this; // 這裡的 this 指的是 check_all 元素物件，傳給變數 that
+        //console.log(this.checked)
+        
+        var all_items = document.querySelectorAll("input.item");
+        // [input, input, input]
+        
+        
+        all_items.forEach(function(item, i){
+            //console.log(i);
+            //console.log(this);
+            item.checked = that.checked;
+        });
+        
+        
+        // all_items.forEach((item, i) => {
+        //   //console.log(this);
+        //   item.checked = this.checked;
+        // });
+        
+        
+        });
+        */
+
+        /*
+        all_items.forEach(function(item, i){
+            item.addEventListener("click", function(){
+                
+                // 有勾選的個數
+                var checked_length = document.querySelectorAll("input.item:checked").length;
+                
+                //console.log(checked_length);
+                
+                // 總共有的個數
+                var all_length = document.querySelectorAll("input.item").length;
+                //console.log(all_length);
+                
+                if(checked_length == all_length){ // 相等的話
+                check_all.checked = true; // 全選框選取
+                }else{
+                check_all.checked = false; // 全選框取消選取
+                }
+                
+            });
+        });
+        */
+    </script>
+</body>
+</html>

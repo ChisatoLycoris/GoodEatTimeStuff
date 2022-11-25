@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display</title>
+    <style>
+        div.parent{
+            border: 1px solid red;
+        }
+
+        div.div1, div.div2{
+            display: block;
+            /* width: 100px;
+            height: 100px;
+            font-size: 0; */
+        }
+
+        div.div1{
+            border: 1px solid black;
+            font-size: 16;
+            visibility: hidden;
+        }
+        div.div2{
+            border: 1px solid blue;
+            font-size: 16;
+        }
+    </style>
+</head>
+<body>
+    <!-- display: block | none | inline-block | inline -->
+<div class="parent">
+    <div class="div1">這是 div1</div>
+    <div class="div2">這是 div2</div>
+</div>    
+</body>
+</html>

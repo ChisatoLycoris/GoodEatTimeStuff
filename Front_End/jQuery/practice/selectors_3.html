@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>其它段落1</p>
+    <p>其它段落2</p>
+
+    <p id="p1">段落1</p>
+    <p id="p2">段落2</p>
+    <p id="p3">段落3</p>
+
+    <div id="outer_div">
+        <div id="inner_div">
+            <p>段落</p>
+            <ol id="ol_list">
+                <li id="i1">項目一</li>
+                <li id="i2">項目二</li>
+                <li id="i3">項目三</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        // 3.6
+        // traversing
+        // $("#p2").prev().css("color", "red");  // 同一層的前一個
+        // $("#p2").next().css("color", "red");  // 同一層的後一個
+
+        // $("#p1").prevAll().css("color", "red");  // 同層前面全部
+        // $("#p1").nextAll().css("color", "red");  // 同層後面全部
+
+        // $("#p1").siblings().css("color", "red");  // 同層自己以外全部
+
+        // 往父層找，找到第一個符合 el 的元素：
+        // $("#i1").closest("div").css("border", "1px solid red");
+
+        // 找到第一層子元素
+        // $("#outer_div").children().css("border", "1px solid red");
+        // $("#ol_list").children().css("border", "1px solid red");
+
+        // 找到第一層子元素為 p 標籤的元素：
+        // $("#inner_div").children("p").css("border", "1px solid red");
+
+        // 一直往內層找(不只是第一層子元素)，找到所有的 p 標籤的元素：
+        // $("#outer_div").find("p").css("border", "1px solid red");
+        // $("#outer_div").find("li").css("border", "1px solid red");
+    </script>
+</body>
+</html>

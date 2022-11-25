@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>File API</title>
+    <style>
+      img.preview{
+        width: 200px;
+      }
+      ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      ul > li{
+        display: inline-block;
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <input type="file" id="the_file" multiple accept="image/*">
+    <!-- accept="image/*" 屬性限定只能使用image檔案格式 -->
+    
+    <!-- 1: beforebegin -->
+    <ul class="picture_list">
+    <!-- 2: afterbegin -->
+    <!-- 3: beforeend -->
+    </ul>
+    <!-- 4: afterend -->
+
+    <script>
+      window.addEventListener("load", function(){
+
+        var the_file_element = document.getElementById("the_file");
+        the_file_element.addEventListener("change", function(e){          
+          // console.log(this);
+          // 寫在這
+          document.querySelector("ul.picture_list").innerHTML = "";
+
+          for(let i = 0; i < this.files.length; i++){
+            let reader = new FileReader(); // 用來讀取檔案的物件
+            reader.readAsDataURL(this.files[i]); // 讀取檔案
+            // 檔案讀取完畢時觸發
+            reader.addEventListener("load", function() {
+              console.log(this.result);
+              // <li>
+              //   <image src="" class="preview">
+              // </li>
+              let li_element = document.createElement("li");
+              let img_element = document.createElement("img");
+              img_element.setAttribute("src", this.result);
+              img_element.setAttribute("class", "preview");
+              li_element.appendChild(img_element);
+              document.querySelector("ul.picture_list").appendChild(li_element);
+                
+              // 老師寫法
+              /*
+              (1)
+              let li_el = "<li>";
+              li_el += '<img src="' + this.result + '" class="preview">';
+              li_el += "</li>";
+                
+              (2)
+              let li_el = `
+                <li>
+                  <img src="${this.result}" class="preview">
+                </li>
+              `;
+      
+              let ul_el = document.getElementsByClassName("picture_list")[0];
+              ul_el.insertAdjacentHTML("beforeend", li_el);
+              */
+            });   
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

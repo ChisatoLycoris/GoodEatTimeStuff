@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>XML HTTP Request</title>
+  </head>
+  <body>
+
+    <script>
+      // 1. 建立 XMLHttpRequest 物件
+      let xhr = new XMLHttpRequest();
+
+      // 2. 設定要向哪個網址取得資料，HTTP verb 為 GET，最後一個參數決定是否以非同步方式來執行
+      xhr.open("GET", "https://notes.webmix.cc/ajax/teach/simple.php", true);
+    //   xhr.open("GET", "https://notes.webmix.cc/ajax/teach/simple_500.php", true);
+    //   xhr.open("GET", "http://127.0.0.1:5500/ajax/no_file.html", true);
+    //   xhr.open("GET", "https://notes.webmix.cc/ajax/teach/simple_no.php", true);
+
+      // 3. 如果伺服器有回應的話，就會執行此函式
+      xhr.onload = function(){
+        console.log("執行到 onload 程式");
+        console.log(xhr);
+        console.log(JSON.parse(xhr.response));
+      };
+      
+      // 4. 如果產生錯誤，有可能執行這裡的程式
+      xhr.onerror = function(){
+        console.log("執行到 onerror 程式");
+        console.log(xhr);
+      };
+      
+      // 5. 發送請求，這裡 null 表示不需要傳遞資料到伺服器
+      xhr.send(null);
+      console.log("ajax發送之後的程式");
+
+    </script>
+  </body>
+</html>

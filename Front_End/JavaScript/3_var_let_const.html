@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color : salmon
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var product = 200;
+        document.write("$" + product);
+    </script>
+
+    <hr>
+    <script>
+        // var 1pp = 20;
+        // document.write(1pp);
+
+        var apple = "lowercase apple";
+        var APPLE = "UPPERCASE APPLE";
+        document.write(APPLE);
+    </script>
+    <hr>
+    <h2>console</h2>
+    <script>
+        console.log("please take a try on Console: ");
+        var testString = "Hi Console";
+        console.log(testString);
+        console.log("This is" + testString);
+        console.log("This is", testString);
+    </script>
+    <hr>
+    <h2>var have a hoist characteristic</h2>
+    <script>
+        // document.write(a);
+        // show nothing in the window
+        // a is not defined
+
+
+        // document.write(a);
+        // var a;
+        // a = 10;
+        // var a = 10;
+        // show undefined in the window
+        // var a was hoisted the variable to the upside of document.write
+        // however, the value will no be hoisted... what is this...
+    </script>
+    <h2>var can be redeclared</h2>
+    <script>
+        var a = 100;
+        var a = 500;
+        document.write(a);
+    </script>
+    <h2>var do not restricted by the bolck</h2>
+    <script>
+        var avg = 56;
+        if (avg >= 60) {
+            var word = "great!";
+        } else {
+            word = "work harder!"
+        }
+        document.write(word);
+    </script>
+    <h2>let do not have the hoist characteristic,
+        you have to use the variable only after you declared the variable</h2>
+    <script>
+        document.write(aa);
+        // let aa;
+        // Uncaught ReferenceError: a is not defined
+    </script>
+    <h2>let cannot be redeclared</h2>
+    <script>
+        let aa = 100;
+        // let aa = 500;
+        document.write(aa);
+        // Uncaught SyntaxError: Identifier 'aa' has already been declared
+    </script>
+    <h2>let is restricted by the block{}</h2>
+    <script>
+        var avg = 66;
+        let words;
+        if (avg >= 60) {
+            words = "great!";
+        } else {
+            words = "work harder!"
+        }
+        document.write(words);
+        // Uncaught ReferenceError: words is not defined
+        // you have to declare the variable out of the block{}
+    </script>
+    <h2>const must have a initial value when you declare a const</h2>
+    <script>
+        // const a;
+        // Uncaught SyntaxError: Missing initializer in const declaration
+    </script>
+    <h2>the value of a const cannot be changed <br>
+        however, attribute in a const object can be changed
+    </h2>
+    <script>
+        const PI = 3.14;
+        // PI = 3;
+        // Uncaught TypeError: Assignment to constant variable.
+        document.write(PI, "<br>");
+
+        const obj = {
+            x: 10,
+            y: 20    
+        };
+        obj.x = 200;
+        document.write(obj.x);
+    </script>
+
+    
+</body>
+</html>

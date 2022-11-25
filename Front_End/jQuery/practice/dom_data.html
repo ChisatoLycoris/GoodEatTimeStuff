@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p data-counter="1" id="p1">這是段落<p>
+
+    <button type="button" id="the_btn"> + 1</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_btn").on("click", function(){
+            $("#p1").attr("data-counter", parseInt($("#p1").attr("data-counter")) + 1 );
+            alert($("#p1").attr("data-counter"));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: olive;
+        }
+        table, tr, td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h2>nested for loop</h2>
+    <script>
+        for (var i = 1; i <= 3; i++) {
+            document.write("first layer" + i + "<br>");
+            for (var j = 1; j <= 3; j++) {
+                document.write("&nbsp&nbsp&nbsp second layer" + j + "<br>")
+            }
+        }
+    </script>
+    <!-- <h2>table with emoji</h2>
+    <table>
+        <tr>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+        </tr>
+        <tr>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+        </tr>
+        <tr>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+            <td>ヾ(・ω・ｏ)</td>
+        </tr>
+    </table> -->
+    <script>
+        document.write("<table>");
+        for (var i = 1; i <= 3; i++) {
+            document.write("<tr>");
+            for (var j = 1; j <= 3; j++) {
+                document.write("<td>ヾ(・ω・ｏ)</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+    <h2>99 multiplication table</h2>
+    <script>
+        document.write("<table>")
+        for (var i = 1; i <= 9; i++) {
+            document.write("<tr>")
+                for (var j = 1; j <= 9; j++) {
+                    document.write("<td>" + i + "*" + j + "=" + (i * j) + "</td>")
+                }
+            document.write("</tr>")
+        }
+        document.write("</table>")
+    </script>
+    <h2>while loop</h2>
+    <script>
+        var i = 1;
+        while (i <= 3) {
+            document.write("I love JS <br>");
+            i++;
+        }
+    </script>
+    <h2>do~while loop</h2>
+    <script>
+        var i = 1;
+        do {
+            document.write("I love JS <br>");
+            i++;
+        }while (i <= 3);
+    </script>
+
+</body>
+</html>

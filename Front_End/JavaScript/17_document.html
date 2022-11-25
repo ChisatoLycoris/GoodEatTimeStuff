@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #MyApp{
+            color :chartreuse;
+        }
+        .app{
+            color :brown;
+        }
+        h2{
+            color:grey;
+        }
+    </style>
+</head>
+<body>
+    <h2>i am a heading 2</h2>
+    <script>
+document.querySelector("h2").style.color = "blue";
+    </script>
+    <div class = "app">App</div>
+    <div class = "app">App1</div>
+    <div class = "app">App2</div>
+    <div id = "MyApp">MyApp</div>
+    <!-- <script>
+        document.title = "new title";
+    </scrip> -->
+    <div id = "root">
+        id name should be unique
+    </div>
+    <script>
+        console.log(document.getElementById("root"));
+        // document.getElementById("root").style.color = "red";
+
+        console.log(document.querySelector("#root"));
+        document.querySelector("#root").style.color = "red";
+    </script>
+
+    <div class = "box">only 1 class name</div>
+    <script>
+        console.log(document.getElementsByClassName("box")[0]);
+        // document.getElementsByClassName("box")[0].style.color = "blue";
+
+        console.log(document.querySelectorAll(".box")[0]);
+        // in css, we need to add a "." before a class name
+        // document.querySelectorAll(".box")[0].style.color = "blue";
+        console.log(document.querySelector(".box"));
+        document.querySelector(".box").style.color = "blue";
+    </script>
+
+    <div class = "myBox">box1</div>
+    <div class = "myBox">box2</div>
+    <div class = "myBox">box3</div>
+    <div class = "myBox">box4</div>
+    <div class = "myBox">box5</div>
+    <script>
+        console. log(document.querySelectorAll(".myBox"));
+        // document.querySelectorAll(".myBox")[0].style.color = "green";
+        var myBox = document.querySelectorAll(".myBox");
+        console.log(myBox.length);
+        for (var i = 0; i < myBox.length; i++) {
+            myBox[i].style.color = "green";
+        }
+    </script>
+
+    <from>
+        <label>
+            <input type = "radio" name = "gender" value = 1>male
+        </label>
+        <label>
+            <input type = "radio" name = "gender" value = 2 checked>female
+        </label>
+        <label>
+            <input type = "radio" name = "gender" value = 3>both
+        </label>
+        
+    </from>
+
+    <script>
+        console.log(document.querySelectorAll("input[name = 'gender']").length);
+        console.log(document.querySelector("input[name = 'gender']:checked").value);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery_AJAX</title>
+</head>
+<body>
+    <ul id="book_data">
+    </ul>
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $.ajax({
+            url: "https://notes.webmix.cc/ajax/teach/simple_ajax.php",           // 資料請求的網址
+            type: "GET",                  // GET | POST | PUT | DELETE | PATCH
+            data: {
+                "book_pages": "302",
+                "book_published": "2022/11/17"
+            },             // 將物件資料(不用雙引號) 傳送到指定的 url
+            dataType: "json",             // 預期會接收到回傳資料的格式： json | xml | html
+            success: function(data){      // request 成功取得回應後執行
+                console.log(data);
+                for (const key in data) {
+                    var newLi = `<li>${key} : ${data[key]}</li>`;
+                    $("ul#book_data").append(newLi);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

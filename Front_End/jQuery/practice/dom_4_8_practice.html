@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4_8_practice</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .title1{
+            color: red;
+        }
+        .para{
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1_title">這是標題</h1>
+    <button type="button" id="change_title">標題加上 title1 樣式</button>
+    <hr>
+
+    <p id="p1" class="title1">這是段落</p>
+    <button type="button" class="btn_para">段落移除 title1 樣式，然後加上 para 樣式</button>
+
+    <hr>
+
+    <a href="https://tw.yahoo.com" target="_blank" class="link">這是連結</a>
+    <button type="button" class="btn_link">將「這是連結」文字，改成「Yahoo! 網站」</button>
+
+    <hr>
+
+    <div>
+    項目名稱：<input type="text" id="item_add">
+    </div>
+
+    <ul class="list">
+    <li>項目一<button type="button" class="btn_del">移除</button></li>
+    </ul>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#change_title").on("click", function(){
+            $("h1_title").addClass("title1");
+        });
+        $("#btn_para").on("click", function(){
+            $("#p1").attr("class", "para");
+        });
+
+        $("#item_add").on("blur", function(){
+            if ($(this).val() != "") {
+                $("ul.list").prepend("<li>" + $(this).val() + "<button type='button' class='btn_del'>移除</button></li>");
+                $(this).val("");
+            }
+        });
+
+        $(document).on("click", "button.btn_del", function(){
+            console.log($(this));
+            $(this).closest("li").remove();
+        });
+
+        
+        // document.addEventListener("click", function(e){
+        //     if(e.target.classList.contains("btn_del")){
+        //     //console.log("1");
+        //         e.target.closest("li").remove();
+        //     }else{
+        //         //console.log("2");
+        //     }
+        // });
+    </script>
+</body>
+</html>

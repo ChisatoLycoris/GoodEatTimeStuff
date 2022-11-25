@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = ["a", "b", { c: "tibame"}];
+        var array2 = array.map(function(element, index, arr){
+            return element
+        });
+        console.log(array2);
+
+        array[0] = "abc";
+        console.log(array[0], array2[0]);
+        array[2].c = "TIBAME";
+        console.log(array, array2);
+
+        // var array3 = [];
+        // array.forEach(function(element){
+        //     array3.push(element);
+        // });
+        // console.log(array3);
+    </script>
+</body>
+</html>

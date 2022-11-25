@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: rosybrown
+        }
+    </style>
+</head>
+<body>
+    <h2>Array</h2>
+    <script>
+        var arr = new Array();
+        arr[0] = "A";
+        arr[1] = "B";
+        arr[2] = "C";
+        document.write(arr, "<br>")
+        console.log(arr);
+    </script>
+    <h2>Array(length)</h2>
+    <script>
+        var arr2 = new Array(6);
+        arr2[0] = "D";
+        arr2[1] = "E";
+        arr2[2] = "F";
+        arr2[3] = "G";
+        arr2[4] = "H";
+        arr2[5] = "I";
+        arr2[6] = "J";
+        arr2[7] = "K";
+        // automatically increase the length of the array
+        document.write(arr2, "<br>");
+        console.log(arr2);
+    </script>
+    <h2>Array(v1, v2...)</h2>
+    <script>
+        var arr3 = new Array("G", "H", "I");
+        document.write(arr3, "<br>");
+        document.write(arr3[0], "<br>");
+    </script>
+    <h2>[v1, v2...]</h2>
+    <script>
+        var arr4 = ["J", "K", "L"];
+        document.write(arr4, "<br>");
+        document.write(arr4[0], "<br>");
+    </script>
+    <h2>arr.length for loop get value</h2>
+    <script>
+        var arr = [11, 66, 44, 33, 77, 88];
+        document.write(arr.length + "<br>");
+
+        for (var i = 0; i < arr.length; i++) {
+            document.write(arr[i] + "<br>");
+        }
+    </script>
+    <h2>for(in) get value</h2>
+    <script>
+        var arr = [11, 22, 33];
+        arr[7] = 100;
+        document.write(arr.length, "<br>");
+        // arr.length = 8
+        for (var i = 0; i < arr.length; i++) {
+            document.write(arr[i], "<br>");
+        }
+        // arr[3]~arr[6] undefined
+        for (var i in arr) {
+            document.write(i + ":" + arr[i] + "<br>");
+        }
+        // i means the index of the Array
+        // only print the element in the array, those who are still undefined will be ignored
+    </script>
+    <h2>for(of) get value</h2>
+    <script>
+        var arr = [111, 222,333];
+        arr[7] = 999;
+        for (var data of arr) {
+            document.write(data, "<br>");
+        }
+    </script>
+    <h2>cast Array type to string type</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66];
+        document.write(typeof arr + "<br>");  // object
+        
+        var str = "";
+        var length = arr.length;
+
+        for (var i = 0; i < length - 1; i ++) {
+            str += arr[i] + ","
+        }
+        str += arr[i];
+        document.write(str + "<br>");
+        document.write(typeof str + "<br>");  //string
+    </script>
+    <h2>toString()</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66];
+        document.write(arr.toString() + "<br>");
+        document.write(typeof arr.toString() + "<br>");  //string
+    </script>
+    <h2>join()</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66];
+        document.write(arr.join("@") + "<br>");
+        document.write(typeof arr.join() + "<br>");  //string
+    </script>
+    <h2>push(), pop()</h2>
+    <script>
+        var arr = [11, 22, 33];
+        arr.push(200);
+        arr.push(2000);
+        document.write(arr + "<br>");
+
+        var data = arr.pop();
+        document.write(data + "<br>");
+        document.write(arr + "<br>");
+    </script>
+    <h2>unshift(), shift()</h2>
+    <script>
+        var arr = [11, 22, 33];
+        arr.unshift(1000);
+        arr.unshift(2000);
+        document.write(arr + "<br>");
+
+        var data = arr.shift();
+        document.write(data + "<br>")
+        document.write(arr + "<br>")
+    </script>
+    <h2>slice()</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66, 77];
+        var arr2 = arr.slice(2, 5);
+        // start from index no.2 to index no.5, index no.5 not included
+        // while using slice function, the array will not be changed
+        document.write(arr2, "<br>");
+        document.write(arr, "<br>");
+    </script>
+    <h2>splice()</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+        var arr2 = arr.splice(2, 5, 100, 200);
+        // start from index no.2, total 5 elements
+        // add the elements 100 & 200 to the arr where elements been spliced
+        document.write(arr2, "<br>");
+        document.write(arr, "<br>");
+    </script>
+    <h2>reverse()</h2>
+    <script>
+        var arr = [11, 22, 33, 44, 55, 66];
+        arr.reverse();
+        document.write(arr, "<br>");
+    </script>
+</body>
+</html>

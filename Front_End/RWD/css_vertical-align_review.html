@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vertical-align</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        ul.list{
+            border: 1px solid black;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul.list > li{
+            border: 1px solid blue;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        ul.list > li:first-child{
+            font-size: 32px;
+        }
+
+        div.img_block{
+            border: 1px solid red;
+            /* font-size: 0; */
+        }
+        
+        div.img_block img{
+            vertical-align: middle;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- vertical-align: baseline(default) | top | middle | bottom-->
+    <ul class="list">
+        <li>第一項<br>第二行</li>
+        <li>第二項xyz</li>
+        <li>第三項</li>
+    </ul>
+    
+    <br><br>
+    
+    <div class="img_block">
+        <img src="https://alldata.sgp1.digitaloceanspaces.com/images/apple.png">
+        <span>xyz</span>
+    </div>
+</body>
+</html>

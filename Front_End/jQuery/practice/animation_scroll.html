@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        div.block{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            overflow: auto; /* visible(預設) | hidden | scroll | auto */
+        }
+        span{
+            border: 1px solid red;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="block">
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+        <span>文字</span>
+    </div>
+    <br>
+    <button type="button" id="btn">滑動</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        console.log( $("div.block").prop("scrollHeight") );
+        // 以下是 JS 的寫法
+        // var abc = document.getElementsByClassName("block")[0];
+        // console.log( abc.scrollHeight );
+
+        $("#btn").on("click", function(){
+            $("div.block").animate({
+                scrollTop: 10
+            });
+        });
+    </script>
+</body>
+</html>

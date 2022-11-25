@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">這是段落<span>span 標籤</span></p>
+
+    <button type="button" id="the_btn">按鈕</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_btn").on("click", function(){
+            let p1 = $("#p1");
+            console.log( p1.text() );
+            console.log( p1.html() );
+            p1.text("<strong>這是替換的內容</strong>");  // 元素.innerText = "";
+            // p1.html("<strong>這是替換的內容</strong>"); // 元素.innerHTML = "";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Model | box-sizing</title>
+    <style>
+        div.parent{
+            border: 1px solid red;
+        }
+
+        div.div1, div.div2{
+            display: inline-block;
+            /* padding: 10px 20px 30px 40px; */
+            padding-top: 10px;
+            padding-right: 20px;
+
+        }
+
+        div.div1{
+            border: 1px solid black;
+            margin-right: 30px;
+            width: 100px;
+            height: 100px;
+        }
+        div.div2{
+            border: 1px solid blue;
+            margin-top: 0px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Box Model: content | padding | border | margin -->
+    <!-- box-sizing: content-box | border-box -->
+<div class="parent">
+    <div class="div1">這是 div1</div>
+    <div class="div2">這是 div2</div>
+</div>    
+</body>
+</html>

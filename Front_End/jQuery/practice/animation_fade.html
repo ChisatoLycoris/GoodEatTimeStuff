@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fade</title>
+    <style>
+        div.div_block{
+            background-color: gray;
+            width: 100px;
+            height: 100px;
+            font-size: 30px;
+            
+            /*   opacity: 0; */
+            /*   透明度 opacity*/
+            /*   display: none; */
+            /*   visibility: hidden; */
+        }
+    </style>
+</head>
+<body>
+    <div class="div_block">這是文字</div>
+    <button type="button" id="the_btn">按鈕</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_btn").on("click", function(){
+  
+        // 分別試試以下程式
+        $("div.div_block").fadeOut(3000);
+        
+        // $("div.div_block").fadeOut(10000, function(){
+        //     //console.log(this);
+            
+        //     $(this).css({
+        //       "display": "block",
+        //       "visibility": "hidden"
+        //     });
+            
+        // });
+        
+        // $("div.div_block").fadeOut(5000).fadeIn(5000);
+        
+        //$("div.div_block").fadeTo(10000, 0.2);
+        
+        //$("div.div_block").fadeIn(10000);
+        });
+    </script>
+</body>
+</html>

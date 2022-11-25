@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array = ["a", "b", { c: "tibame"}];
+        var array2 = [...array];
+        console.log(array2);
+        var array3 = JSON.parse(JSON.stringify([...array]));
+        console.log(array3);
+        
+        array[0] = "abc";
+        console.log(array[0], array2[0]);
+        array[2].c = "TIBAME";
+        console.log(array, array2, array3);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" id="the_html">
+  <head>
+    <meta charset="utf-8">
+    <title>Fullscreen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <style>
+      img{
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>目前這個瀏覽器有支援全螢幕模式嗎：<span id="fullscreen_enabled"></span></p>
+
+    <button type="button" id="btn_fullscreen_html">網頁全螢幕</button>
+    <button type="button" id="btn_fullscreen_video">影片全螢幕</button>
+    <button type="button" id="btn_fullscreen_img">圖片全螢幕</button>
+    <hr>
+
+    <img id="the_img" src="https://picsum.photos/id/230/300/300">
+
+    <video controls id="the_video">
+      <source src="https://alldata.sgp1.digitaloceanspaces.com/videos/sample.mp4"></source>
+    </video>
+    
+    <div style="height: 2000px;border: 1px solid red;">創造很長的假內容</div>
+
+    <script>
+      window.addEventListener("load", function(){
+
+        var check_fullscreen = document.getElementById("fullscreen_enabled");
+        check_fullscreen.innerHTML = document.fullscreenEnabled;
+
+        // 寫在這
+        document.querySelector("#btn_fullscreen_html").addEventListener("click", function() {
+            // document.querySelector("#the_html").requestFullscreen();
+            fullscreen_mode("the_html");
+        });
+
+        document.querySelector("#btn_fullscreen_video").addEventListener("click", function() {
+            // document.querySelector("#the_video").requestFullscreen();
+            fullscreen_mode("the_video");
+        });
+
+        document.querySelector("#btn_fullscreen_img").addEventListener("click", function() {
+            // document.querySelector("#the_img").requestFullscreen();
+            fullscreen_mode("the_img");
+        });
+
+        function fullscreen_mode(element) {
+            var element_el = document.getElementById(element);
+            // console.log(document.fullscreenElement);
+
+            if (!document.fullscreenElement) {
+                element_el.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // var button_all = document.querySelectorAll("button");
+        // console.log(button_all);
+        // for (i = 0; i < button_all.length; i++) {
+        //     button_all[i].addEventListener("click", function(){
+        //     還沒想到要怎麼寫哈哈哈
+        //     });
+        // }
+        document.addEventListener("fullscreenchange", function(e){
+            // 事件觸發相關程式寫在這裡，可透過 document.fullscreenElement 來判斷
+            console.log("fullscreenchange 事件觸發");
+            console.log(document.fullscreenElement);
+        
+            if(document.fullscreenElement){
+            console.log("進入全螢幕模式");
+            }else{
+            console.log("退出全螢幕模式");
+            }
+        });
+
+        // 全螢幕模式只能由使用者來觸發
+        // var element_html = document.getElementById("the_html");
+        //     element_html.requestFullscreen();
+  
+        // document.addEventListener("fullscreenerror", function(e){
+        //     console.log("fullscreenerror 事件觸發")
+        // });
+
+      });
+    </script>
+  </body>
+</html>

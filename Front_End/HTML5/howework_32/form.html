@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" id="the_html">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5_homework_32</title>
+    <style>
+        /* inupt標籤若有disabled屬性 */
+        input[disabled]{
+            background-color: #eee;
+            cursor: not-allowed;
+        }
+        #drop_zone{
+            border: 1px dashed #ccc;
+            height: 50px;
+            position: relative;
+        }
+        #drop_zone span.text{
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            color: lightgray;
+        }
+        #drop_zone.-on{
+            border: 1px dashed lightblue;
+            box-shadow: 3px 3px 5px lightblue inset, -3px -3px 5px lightblue inset;
+        }
+        #preview{
+            border: 1px solid lightgray;
+            display: inline-block;
+            width: 100px;
+            min-height: 150px;
+            position: relative;
+        }
+        #preview span.text{
+            position: absolute;
+            display: inline-block;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            color: lightgray;
+        }
+        #preview img.preview_img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p>是否有支援全螢幕模式: <span id="fullscreen_enable"></span></p>
+    <p>是否有支援地理資訊定位: <span id="geolocation_support"></span></p>
+    <form action="#" method="#" id="the_form">
+        <div>
+            <label for="p_name">商品名稱: </label>
+            <input type="text" id="p_name">
+        </div>
+        <div>
+            <label for="p_count">商品數量: </label>
+            <input type="range" min="1" max="10" value="1" id="p_count">
+            <span id="p_count_show">1</span>
+        </div>
+        <div>
+            <label for="p_file">商品圖片: </label>
+            <input type="file" id="p_file" accept="image/*">
+        </div>
+        <div id="drop_zone"><span class="text">圖片拖曳至此處</span></div>
+        <div id="preview"><span class="text">預覽圖</span></div>
+        <div>
+            <span>使用者所在約略位置: </span>
+            <label for="lng">經度: </label>
+            <input type="text" id="lng" readonly>
+            <label for="lat">緯度: </label>
+            <input type="text" id="lat" readonly>
+        </div>
+        <br>
+        <div>
+            <button type="reset">清空資料</button>
+            <button type="button" id="btn_submit">送出資料</button>
+        </div>
+    </form>
+    <button type="button" id="btn_fullscreen">進入/離開全螢幕模式</button>
+
+    <script>
+        window.addEventListener("load", function(){
+            // 元素宣告變數 ----------------------------------------------------------------------
+            var the_html = document.getElementById("the_html");
+            var p_count = document.getElementById("p_count");
+            var the_form = document.getElementById("the_form");
+            var p_count_show = document.getElementById("p_count_show");
+            var fullscreen_enable = document.getElementById("fullscreen_enable");
+            var btn_fullscreen = document.getElementById("btn_fullscreen");
+            var geolocation_support = document.getElementById("geolocation_support");
+            var lng = document.getElementById("lng");
+            var lat = document.getElementById("lat");
+            var drop_zone = document.getElementById("drop_zone");
+            var preview = document.getElementById("preview");
+            var preview_span = document.createElement("span");
+            preview_span.appendChild(document.createTextNode("預覽圖"));
+            preview_span.classList.add("text");
+            // console.log(preview_span);
+            var img_upload = document.createElement("img");
+            var p_file = document.getElementById("p_file");
+            var btn_submit = document.getElementById("btn_submit");
+            var p_name = document.getElementById("p_name");
+
+
+            // 函式宣告: 取得經緯度 -------------------------------------------------------------------
+            var getGeolocation = function(){
+                navigator.geolocation.getCurrentPosition(function(position){
+                    lng.value = position.coords.longitude;
+                    lat.value = position.coords.latitude;
+                }, function(error){
+                    lng.disabled = true;
+                    lat.setAttribute("disabled", "disabled");
+                });
+            }
+
+            // 函式宣告: 檔案讀取
+            var readFile = function(file) {
+                preview.innerHTML = "";
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.addEventListener("load", function(){
+                    img_upload.src = this.result;
+                    img_upload.setAttribute("class", "preview_img");
+                    preview.appendChild(img_upload);
+                    // console.log(reader.result);
+                });
+            }
+
+            // 若sessionStorage中有資料，則讀取資料於頁面上
+            if (sessionStorage.getItem("form_data") != null) {
+                var previous_data = JSON.parse(sessionStorage.getItem("form_data"));
+                p_name.value = previous_data.p_name;
+                p_count.value = previous_data.p_count;
+                p_count_show.innerText = p_count.value;
+                lng.value = previous_data.position.lng;
+                lat.value = previous_data.position.lat;
+                img_upload.src = previous_data.img_base64;
+                img_upload.setAttribute("class", "preview_img");
+                preview.appendChild(img_upload);
+            }
+
+            // 商品數量：type 為 range，在 mousemove 時觸發
+            p_count.addEventListener("mousemove", function(e){
+                // other code...
+                p_count_show.innerText = e.target.value;
+            });
+
+            // reset 按鈕按下去的時候，觸發
+            the_form.addEventListener("reset", function(){
+                // other code...
+                p_count.value = "1";
+                p_count_show.innerText = p_count.value;
+                if (navigator.geolocation) {
+                    getGeolocation();
+                }
+                // 回到預覽圖文字顯示
+                preview.innerHTML = "";
+                preview.appendChild(preview_span);
+                // 刪除sessionStorage中的資料
+                sessionStorage.removeItem("form_data");
+            });
+
+            // 確認網站是否有支援全螢幕模式 ----------------------------------------------------------------------
+            // 老師寫法是把判斷是否有支援寫在註冊事件的function內
+            if(document.fullscreenEnabled) {
+                fullscreen_enable.innerText = "是";
+                // 註冊事件 :進入/離開全螢幕模式
+                btn_fullscreen.addEventListener("click", function(){
+                    // console.log(document.fullscreenElement);
+                    if (!document.fullscreenElement) {
+                        the_html.requestFullscreen();
+                    } else {
+                        document.exitFullscreen();
+                    }
+                });
+            } else {
+                fullscreen_enable.innerText = "否";
+                // 註冊事件 :彈出視窗通知不支援全螢幕摸式
+                btn_fullscreen.addEventListener("click", function(){
+                    alert("您的瀏覽器不支援全螢幕模式");
+                });
+            }
+
+            // 確認是否有支援地理資訊定位 ----------------------------------------------------------------------
+            if (navigator.geolocation) {
+                geolocation_support.innerText = "是";
+                getGeolocation();
+            } else {
+                geolocation_support.innerText = "否";
+            }
+
+            // 允許其他元素拖曳至此 ----------------------------------------------------------------------
+            drop_zone.addEventListener("dragover", function(e){
+                e.preventDefault();
+                // console.log("aaa");
+            });
+
+            drop_zone.addEventListener("dragenter", function(){
+                drop_zone.classList.add("-on");
+            });
+
+            drop_zone.addEventListener("dragleave", function(e){
+                e.preventDefault();
+                drop_zone.classList.remove("-on");
+            });
+
+            //  預覽圖 -------------------------------------------------------------------------------
+            drop_zone.addEventListener("drop", function(e){
+                e.preventDefault();
+                drop_zone.classList.remove("-on");
+                // console.log("bbb");
+                var img = e.dataTransfer.files;
+                console.log(img);
+                readFile(img[0]);
+            });
+            
+            p_file.addEventListener("change", function(e){
+                readFile(this.files[0]);
+            });
+
+            //  session storage & 跳轉至confirm.html
+            btn_submit.addEventListener("click",function(){
+                var form_data = {
+                    p_name: p_name.value,
+                    p_count: p_count.value,
+                    img_base64: img_upload.src,
+                    position: {
+                        lng: lng.value,
+                        lat: lat.value
+                    }
+                }
+                // console.log(form_data);
+                sessionStorage.setItem("form_data", JSON.stringify(form_data));
+                location.href = "./confrim.html";
+            });
+
+        });
+    </script>
+</body>
+</html>

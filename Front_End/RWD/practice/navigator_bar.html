@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigator Bar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        button.btn_switch {
+            display: none;
+        }
+        @media (max-width: 767.98px) {
+            button.btn_switch{
+                display:inline-block;
+            }
+        }
+        nav.main_nav {
+            border : 1px solid black;
+        }
+        @media (min-width: 768px) {
+            nav.main_nav{
+                display:block !important;
+            }
+        }
+        @media (max-width: 767.98px) {
+            nav.main_nav{
+                display:none;
+            }
+        }
+        nav.main_nav ul.nav_list {
+            border : 1px solid red;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav.main_nav ul.nav_list > li{
+            border : 1px solid blue;
+            display: inline-block;
+        }
+        nav.main_nav ul.nav_list > li a{
+            text-decoration: none;
+            display: inline-block;
+            border: 1px solid orange;
+        }
+        @media (max-width: 767.98px) {
+            nav.main_nav ul.nav_list > li{
+                display:block;
+            }
+            nav.main_nav ul.nav_list > li a{
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+        }
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn_switch">導覽列縮合按鈕</button>
+
+    <nav class="main_nav">
+        <ul class="nav_list">
+            <li><a href="#">首頁</a></li>
+            <li><a href="#">關於我們</a></li>
+            <li><a href="#">分類頁</a></li>
+        </ul>
+    </nav>
+
+    <script src="./jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("button.btn_switch").on("click", function(){
+            $("nav.main_nav").slideToggle();
+        });
+    </script>
+</body>
+</html>

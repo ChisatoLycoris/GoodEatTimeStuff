@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("you can write the text directly<br>");
+        var testString = "I am a variable";
+        document.write(testString, "<br>");
+        document.write("Hi, " + testString + "<br>");
+        document.write("Hi, " + testString, "<br>"); 
+        // 串接基本上都是用+的寫法，但,的寫法在document.write也有一樣的效果
+        
+        document.write(`I am a template variable : ${testString}`);
+        // 建議後續漸漸改用這種用法
+
+        // document.write的寫法其實有一些限制，實際工作上已經漸漸棄用，較多是對於初學者教學使用
+    </script>
+</body>
+</html>

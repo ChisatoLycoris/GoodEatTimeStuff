@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h2>Object1</h2>
+    <script>
+        var obj = {
+            name: "Sara",
+            skill: ["html", "css", "js"],
+            say: function(){
+                return "Hi";
+            }
+        };
+
+        console.log(obj);
+        document.write(obj.name + "<br>");
+        document.write(obj["name"] + "<br>");  //do not recommended. [] may mislead to array.
+        document.write(obj.skill[1] + "<br>");
+        document.write(obj.say());
+    </script>
+
+    <h2>Object2</h2>
+    <script>
+        var obj2 = {};
+        obj2.name = "Jack";
+        obj2.skill = ["java", "mySQL", "JDBC"];
+        obj2.say = function() {
+            return "Hello~";
+        }
+        document.write(obj2.name + "<br>");
+        document.write(obj2.skill[1] + "<br>");
+        document.write(obj2.say() + "<br>");
+
+        obj2.name = "Amy";
+        document.write(obj2.name + "<br>");
+    </script>
+
+    <h2>Object3</h2>
+    <script>
+        function obj3(name, skill, say) {
+            this.name = name;
+            this.skill = skill;
+            this.say = function() {
+                return say;
+            }
+        }
+
+        var who = new obj3("Sherry", ["git", "vue", "react"], "QQ");
+        document.write(who.name + "<br>");
+        document.write(who.skill[2] + "<br>");
+        document.write(who.say() + "<br>");
+
+        var who2 = new obj3("Ming", ["java", "python", "C++"], "Good Luck!")
+        document.write(who2.name + "<br>");
+        document.write(who2.skill[1] + "<br>");
+        document.write(who2.say() + "<br>");
+
+    </script>
+
+    <h2>for in loop get object</h2>
+    <script>
+        var john = {
+            firstName : "Tak-Wai",
+            lastName : "Chan"
+        }
+
+        for (var p in john) {
+            // document.write(p + "<br>");
+            document.write(p + ":" + john[p] + "<br>");
+            // caution!
+        }
+    </script>
+</body>
+</html>

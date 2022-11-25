@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hide_show</title>
+    <style>
+        div.div_block{
+            background-color: gray;
+            width: 100px;
+            height: 100px;
+            font-size: 30px;
+            
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="div_block">這是文字</div>
+    <button type="button" id="the_btn">按鈕</button>
+
+    <script src="./vendors/jquery/jquery-3.6.1.min.js"></script>
+    <script>
+        $("#the_btn").on("click", function(){
+  
+        // 分別試試以下程式
+        //$("div.div_block").hide();
+        
+        //$("div.div_block").hide(10000);
+        
+        //$("div.div_block").hide(10000).show(10000);
+
+        //$("div.div_block").toggle(10000);
+        
+        //$("div.div_block").show();
+        });
+    </script>
+</body>
+</html>

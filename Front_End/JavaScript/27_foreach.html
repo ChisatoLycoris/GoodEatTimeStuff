@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   var array = ["a", "b", { c: "tibame" }];
+      
+      //   array.forEach(function(element, index, arr) {
+      //     console.log(element, index, arr);
+      //   });
+      //////
+      var array1 = ["a", "b", { c: "tibame"}];
+      var array2 = [];
+
+      array1.forEach(function(element){
+        array2.push(element);
+      });
+      console.log(array2);
+      array1[0] = "abc";
+      console.log(array1[0], array2[0]);
+
+      array1[2].c = "TIBAME";
+      console.log(array1, array2);
+
+    </script>
+  </body>
+</html>

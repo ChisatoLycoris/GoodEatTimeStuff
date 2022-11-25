@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>Dedicated Worker(專有 Worker 或 稱做一般 Worker)</title>
+  </head>
+  <body>
+    <p>計數器：<span id="result"></span></p>
+    <button type="button" id="start_worker">啟動 Worker</button>
+    <button type="butotn" id="stop_worker">停止 Worker</button>
+
+    <script>
+      var worker;
+      var btn_start_worker = document.getElementById("start_worker");
+      var btn_stop_worker = document.getElementById("stop_worker");
+      btn_start_worker.onclick = function(){
+        if(window.Worker){
+
+          // 建立一個 Dedicated Worker
+          worker = new Worker("./worker_js/worker2.js");
+          // 監聽 worker 是否有回傳資料，有的話就執行
+          worker.onmessage = function(e) {
+            document.getElementById("result").innerHTML = e.data;
+          };
+
+        }else{
+          console.log('不支援 Worker');
+        }
+      };
+      btn_stop_worker.onclick = function(){
+        // 停止 worker 的執行
+        worker.terminate();
+      };
+    </script>
+  </body>
+</html>

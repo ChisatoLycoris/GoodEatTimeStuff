@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            color: saddlebrown;
+        }
+    </style>
+</head>
+<body>
+    <h2>no parameter and no return value</h2>
+    <script>
+        function sayHello() {
+            document.write("Hello~~~ <br>");
+        }
+        sayHello();
+    </script>
+    <h2>use parameter, but no return value</h2>
+    <script>
+        function sayHelloToYou(name) {
+            document.write("Hello~" + name + "<br>");
+        }
+        sayHelloToYou("sara");
+        sayHelloToYou("amy");
+
+        function showDay(day, msg) {
+            document.write(day + ":" + msg + "<br>");
+        }
+        showDay("Sunday", "Today is a good day");
+        showDay("Monday", "don't wanna work");
+    </script>
+    <h2>use parameter and have return value</h2>
+    <script>
+        function needYourName(name) {
+            return "hi~" + name;
+        }
+        document.write(needYourName("sara") + "<br>");
+        document.write(needYourName("jack") + "<br>");
+    </script>
+    <h2>function practice</h2>
+    <script>
+        // var type;  //1.2.3 type
+        // var degree;  //1 for master or above degree, 0 for undergraduate or below degree
+        // var money;
+
+        function getSubsidy(type, degree) {
+            var money;
+            if(type == 1) {
+                if(degree == 1){
+                    money = 5000 + 1000;
+                }else{
+                    money = 5000;
+                }
+            }else if(type == 2) {
+                money = 3000;
+            }else if(type == 3){
+                money = 1000;
+            }else{
+                console.log("no this type")
+            }
+            return money;
+        }
+        document.write(getSubsidy(1, 0));
+        
+    </script>
+    <h2>default value for parameter</h2>
+    <script>
+        function showMsg(msg = "Hi") {
+            document.write(msg + "<br>");
+        }
+        showMsg("哈囉");
+        showMsg();
+    </script>
+    <h2>function declaration</h2>
+    <script>
+        sayHi();
+        // function have the hoist characteristic
+        function sayHi() {
+            document.write("do not recommend in this way <br>");
+        }
+    </script>
+    <h2>funciton expression / (usually) anonymous function</h2>
+    <script>
+        // sayHiHI();
+        // anonymous do not have a hoist characteristic
+        var sayHiHi = function() {
+            document.write("i am a function expression <br>");
+        }
+        sayHiHi();
+    </script>
+    <h2>arrow function</h2>
+    <script>
+        const myFunction = () => {
+            document.write("i am a arrow function <br>");
+        }
+        myFunction();
+    </script>
+    <h2>arguments</h2>
+    <script>
+        function sum (a, b, c) {
+            var total = 0;
+            for(var i = 0; i < arguments.length; i++) {
+                total += arguments[i];
+            }
+            return total;
+        }
+        document.write(sum(2,4,6,8,10,12) + "<br>");
+        // usually put the arguments in a array, and use this array as a parameter
+        // argument: when using a function; parameter: when declaring a function;
+    </script>
+    <h2>callback function</h2>
+    <script>
+        function A_function (x) {
+            document.write("This is A <br>");
+            x();
+        }
+        function B_function () {
+            document.write("This is B <br>");
+        }
+        A_function(B_function);
+    </script>
+</body>
+</html>

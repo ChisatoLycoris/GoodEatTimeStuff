@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <title>Fetch</title>
+  </head>
+  <body>
+
+    <script>
+
+      var fetch_url = "https://notes.webmix.cc/ajax/teach/simple.php";
+      //var fetch_url = "https://notes.webmix.cc/ajax/teach/simple_500.php";
+      //var fetch_url = "http://127.0.0.1:5500/ajax/no_file.html";
+      //var fetch_url = "https://notes.webmix.cc/ajax/teach/simple_no.php";
+      
+      fetch(fetch_url).then(function(response){ // 接收到回傳的物件(尚未取得真正的資料)
+
+        console.log(response);
+        if(response.ok){ // 如果正確取得資料，沒有發生錯誤
+          return response.json(); // 將取得的資料，再使用 .json() 解析資料
+        }
+        throw new Error(response.statusText); // 會執行下方的 catch 區塊程式
+
+      }).then(function(data){ // 這裡真的取得資料：data
+        console.log("成功取得資料");
+        console.log(data);
+      }).catch(function(error){ // 發生任何錯誤，就會執行 catch 裡的程式
+        console.log("錯誤資訊");
+        console.log(error); // 這裡取得錯誤資訊：error
+      });
+      
+      console.log("非同步，故這裡會先印出來");
+    </script>
+  </body>
+</html>

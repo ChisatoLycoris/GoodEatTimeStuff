@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #img_container{
+            width: 100px;
+        }
+        #img_container #img_show{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <p>該瀏覽器有支援worker嗎？ <span id="worker_enable"></span></p>
+    <p>請於<span id="countdown"></span>秒內按【確認】按鈕，確認資訊的正確性。否則將返回前一頁。</p>
+    <hr>
+    <h1>Confrim 頁面</h1>
+    <h2>商品名稱: <span id="p_name"></span></h2>
+    <div>商品數量: <span id="p_count"></span></div>
+    <div>位置資訊經度: <span id="lng"></span></div>
+    <div>位置資訊緯度: <span id="lat"></span></div>
+    <div>商品圖:</div>
+    <div id="img_container">
+        <img id="img_show" src="">
+    </div>
+    <button type="button" id="btn_confirm">確認</button>
+    <button type="button" id="btn_refill">重填</button>
+
+    <script>
+        window.addEventListener("load", function(){
+            var form_data = JSON.parse(sessionStorage.getItem("form_data"));
+            console.log(form_data);
+            document.getElementById("p_name").innerHTML = form_data.p_name;
+            document.getElementById("p_count").innerHTML = form_data.p_count;
+            document.getElementById("lng").innerHTML = form_data.position.lng;
+            document.getElementById("lat").innerHTML = form_data.position.lat;
+            document.getElementById("img_show").src = form_data.img_base64;
+            
+            var back_page = function() {
+                history.back();
+            }
+
+            var worker;
+            if (window.Worker) {
+                document.getElementById("worker_enable").innerHTML = "有支援";
+                worker = new Worker("./js/worker_countdown.js");
+                worker.postMessage(10);
+                console.log("收到主程式來的資料: 10")
+                document.getElementById("countdown").innerHTML = 10;
+                worker.onmessage = function(e){
+                    console.log("收到 worker 來的資料: " + e.data);
+                    document.getElementById("countdown").innerHTML = e.data;
+                    if (e.data < 1) {
+                        worker.terminate();
+                        back_page();
+                    }
+                }
+            } else {
+                document.getElementById("worker_enable").innerHTML = "不支援";
+                var i = 10;
+                setInterval(function(){
+                    document.getElementById("countdown").innerHTML = i;
+                    i--;
+                    if (i < 0) {
+                        back_page();
+                    }
+                },1000);
+            }
+
+            document.getElementById("btn_confirm").addEventListener("click", function(){
+                if (document.getElementById("countdown").innerHTML > 0) {
+                    worker.terminate();
+                }
+                alert("感謝你的確認");
+            });
+
+            document.getElementById("btn_refill").addEventListener("click", function(){
+                if (document.getElementById("countdown").innerHTML > 0) {
+                    worker.terminate();
+                }
+                back_page();
+            });
+        });
+    </script>
+</body>
+</html>
