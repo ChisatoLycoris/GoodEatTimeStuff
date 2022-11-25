@@ -43,7 +43,7 @@ $(function(){
     $("div.shopping__cart__table").on("click", "thead.prod__cart__heads",function(){
         // console.log($(this).closest("table"));
         // console.log($(this).next("tbody.prod__cart__items"));
-
+        // console.log("aaa");
         // 關閉其他已打開的表格關閉
         let otherOpenTable = $(this).closest("table").siblings(".-on");
         otherOpenTable.children("tbody.prod__cart__items").find("tr").slideToggle(1);
@@ -122,7 +122,7 @@ $(function(){
                 $(this).remove();
             });
             $(this).html("使用");
-            $("div.cart__discount__alert span").removeClass("-on");
+            // $("div.cart__discount__alert span").removeClass("-on");
             $("div.nice-select li.selected").removeClass("selected");
             $("div.nice-select li").first().addClass("selected");
             $("div.nice-select span.current").text($("div.nice-select li.selected").text());
@@ -150,6 +150,16 @@ $(function(){
             // 需先取消折價券後再使用
             e.stopPropagation();
             $("div.cart__discount__alert span").addClass("-on");
+            $("div.cart__discount__alert span").css({
+                "visibility": "visible"
+            });
+            $("div.cart__discount__alert span").fadeOut(2000, function() {
+                $(this).css({
+                    "display": "block",
+                    "visibility": "hidden"
+                });
+                $(this).removeClass("-on");
+            });
         } else {
             // console.log("not using");
         }
@@ -166,6 +176,9 @@ $(function(){
         calculateCart();
         // console.log(123);
     });
+
+    // 進入頁面時觸發click事件，打開第一個購物車內容
+    $("div.shopping__cart__table").find("thead").first().trigger("click");
     
 });
 
