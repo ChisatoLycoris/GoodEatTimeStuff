@@ -94,7 +94,7 @@ restaurantTaxIDNo varchar(20) comment '統一編號',
 restaurantAccountInfo varchar(50) comment '帳戶資訊',
 restaurantBusinessHour varchar(200) not null comment '營業時間',
 restaurantAddr varchar(50) not null comment '地址',
-restaurantStatus boolean comment '餐廳狀態',
+restaurantStatus bit(1) comment '餐廳狀態',
 restaurantAccount varchar(20) not null comment '餐廳帳號',
 restaurantPassword varchar(50) not null comment '餐廳密碼',
 restaurantCommentQuantity int not null default(0) comment '總評論數量',
@@ -118,10 +118,10 @@ create table `administrator`(
 `adminAccount` varchar(20) not null comment '帳號',
 `adminPassword` varchar (50) not null comment '密碼',
 `adminName` varchar (50) not null comment '姓名',
-`modifyAdminData` boolean not null comment '新增修改系統管理員帳號',
-`modifyMemberData` boolean not null comment '查詢修改會員資料',
-`verifyRestaurant` boolean not null comment '審核餐廳',
-`verifyAdCoupon` boolean not null comment '審核廣告與折價券',
+`modifyAdminData` bit(1) not null comment '新增修改系統管理員帳號',
+`modifyMemberData` bit(1) not null comment '查詢修改會員資料',
+`verifyRestaurant` bit(1) not null comment '審核餐廳',
+`verifyAdCoupon` bit(1) not null comment '審核廣告與折價券',
 constraint adminNo_PK primary key (adminNo)) comment '系統管理員';
   
 insert into administrator(adminAccount, adminPassword, adminName, modifyAdminData, modifyMemberData, verifyRestaurant, verifyAdCoupon)
@@ -166,7 +166,7 @@ CREATE TABLE `goodEatTime`.`member` (
   birthday DATE NULL,
   mail VARCHAR(100) NOT NULL,
   memberPassword VARCHAR(50) NOT NULL,
-  verificationAccount boolean NOT NULL default(0) comment'信箱是否以驗證, 0:尚未驗證, 1:已驗證',
+  verificationAccount bit(1) NOT NULL default(0) comment'信箱是否以驗證, 0:尚未驗證, 1:已驗證',
   tel VARCHAR(20) NULL,
   point INT NULL,
   memberPic BLOB NULL,
@@ -179,11 +179,11 @@ ADD CONSTRAINT FK_member_memberLevel
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
  
-INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('1', 'Peter', '1988-02-01', 'peter1988@yahoo.com.tw', 'Peter1988', '1', '093231520', '20');
-INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('3', 'Chris', '2000-03-05', 'chris2000@gmail.com', 'Chris2000', '1', '0973825638', '50');
-INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('2', 'James', '1999-05-06', 'james0101@gmail.com', 'James1999', '1', '0973526145', '60');
-INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('4', 'Sam', '2003-12-01', 'sammy88@yahoo.com.tw', 'Sam2003', '0', '0976548765', '10');
-INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('3', 'David', '1980-01-01', 'ddavid1980@gmail.com', 'David1980', '0', '0983625174', '30');
+INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('1', 'Peter', '1988-02-01', 'peter1988@yahoo.com.tw', 'Peter1988', 1, '093231520', '20');
+INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('3', 'Chris', '2000-03-05', 'chris2000@gmail.com', 'Chris2000', 1, '0973825638', '50');
+INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('2', 'James', '1999-05-06', 'james0101@gmail.com', 'James1999', 1, '0973526145', '60');
+INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('4', 'Sam', '2003-12-01', 'sammy88@yahoo.com.tw', 'Sam2003', 0, '0976548765', '10');
+INSERT INTO `goodEatTime`.`member` (`memberLevel`, `name`, `birthday`, `mail`, `memberPassword`, `verificationAccount`, `tel`, `point`) VALUES ('3', 'David', '1980-01-01', 'ddavid1980@gmail.com', 'David1980', 0, '0983625174', '30');
 
 commit;
 
@@ -197,11 +197,11 @@ couponApplyDate timestamp default current_timestamp comment'申請日期',
 couponName varchar(50) not null comment'優惠券名稱',
 couponStartTime date not null comment'開始時間',
 couponEndTime date not null comment'結束時間',
-verified boolean comment'審核狀態',
+verified bit(1) comment'審核狀態',
 couponContent varchar(200) not null comment'優惠券內容',
 usageLimitation int comment'訂單金額滿多少可以使用',
 amountOrFold double comment'金額 - 折數',
-couponType boolean comment'種類, 0:折價, 1:打折',
+couponType bit(1) comment'種類, 0:折價, 1:打折',
 maxIssueQty int not null comment'發行張數上限',
 issuedQty int not null default(0) comment'已發行張數',
 verificationDetail varchar(200) comment'審核資訊',
@@ -277,7 +277,7 @@ adminNo int comment '系統管理員編號',
 adOrderTime timestamp default current_timestamp not null comment '申請日期',
 adStartTime date not null comment '開始時間',
 adEndTime date not null comment '結束時間',
-verified boolean comment '審核狀態',
+verified bit(1) comment '審核狀態',
 verificationDetail varchar(200) comment '審核資訊',
 adOrderPrice int not null comment '總金額',
 slideshowPic LONGBLOB comment '跑馬燈圖片',                 /* 是否改成longblob */ 
@@ -412,7 +412,7 @@ commit;
 create table memberCoupon(
 memberNo int not null comment'會員編號',
 couponNo int not null comment'優惠券編號',
-usageStatus boolean not null default(0) comment'使用狀態',
+usageStatus bit(1) not null default(0) comment'使用狀態',
 CONSTRAINT pk_coupon PRIMARY KEY (memberNo, couponNo),
 constraint FK_memberCoupon_memberNo foreign key(memberNo) references member(memberNo),
 constraint FK_memberCoupon_couponNo foreign key(couponNo) references coupon(couponNo)
